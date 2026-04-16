@@ -1,0 +1,11 @@
+prefix=/srv/scratch/z5526880/6713group/6713
+exec_prefix=/srv/scratch/z5526880/6713group/6713
+libdir=/srv/scratch/z5526880/6713group/6713/lib
+includedir=/srv/scratch/z5526880/6713group/6713/include
+
+Name: uuid
+Description: Universally unique id library
+Version: 2.32.1
+Requires:
+Cflags: -I${includedir}/uuid
+Libs: -L${libdir} -luuid

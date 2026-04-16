@@ -1,0 +1,32 @@
+{
+  "name": "libstdcxx-ng",
+  "version": "15.2.0",
+  "build": "hc03a8fd_7",
+  "build_number": 7,
+  "channel": "https://repo.anaconda.com/pkgs/main/linux-64",
+  "subdir": "linux-64",
+  "fn": "libstdcxx-ng-15.2.0-hc03a8fd_7.conda",
+  "md5": "cf200522c0b13d64bf81035358d05f5b",
+  "legacy_bz2_md5": "8716137513e14b292fa6f40c09980884",
+  "url": "https://repo.anaconda.com/pkgs/main/linux-64/libstdcxx-ng-15.2.0-hc03a8fd_7.conda",
+  "sha256": "7a39becf3c7dd6016d4b6d24587071cda2afefcdf2886ad16572095261c87b90",
+  "depends": [
+    "libstdcxx 15.2.0 h39759b7_7"
+  ],
+  "constrains": [],
+  "license": "GPL-3.0-only WITH GCC-exception-3.1",
+  "timestamp": 1762772606373,
+  "size": 28429,
+  "requested_spec": "None",
+  "package_tarball_full_path": "/srv/scratch/z5526880/miniconda3/pkgs/libstdcxx-ng-15.2.0-hc03a8fd_7.conda",
+  "extracted_package_dir": "/srv/scratch/z5526880/miniconda3/pkgs/libstdcxx-ng-15.2.0-hc03a8fd_7",
+  "files": [],
+  "paths_data": {
+    "paths_version": 1,
+    "paths": []
+  },
+  "link": {
+    "source": "/srv/scratch/z5526880/miniconda3/pkgs/libstdcxx-ng-15.2.0-hc03a8fd_7",
+    "type": 1
+  }
+}

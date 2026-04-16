@@ -1,0 +1,6 @@
+#!/srv/scratch/z5526880/6713group/6713/bin/python3.11
+import sys
+from fontTools.merge import main
+if __name__ == '__main__':
+    sys.argv[0] = sys.argv[0].removesuffix('.exe')
+    sys.exit(main())

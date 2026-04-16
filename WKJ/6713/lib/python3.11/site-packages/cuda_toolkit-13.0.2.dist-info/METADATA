@@ -1,0 +1,151 @@
+Metadata-Version: 2.4
+Name: cuda-toolkit
+Version: 13.0.2
+Summary: CUDA Toolkit meta-package
+Project-URL: homepage, https://developer.nvidia.com/cuda-toolkit
+Project-URL: documentation, https://docs.nvidia.com/cuda/
+Author-email: NVIDIA Kitmaker Team <compute_installer@nvidia.com>
+Keywords: cuda,nvidia
+Classifier: Development Status :: 6 - Mature
+Classifier: Environment :: GPU
+Classifier: Environment :: GPU :: NVIDIA CUDA
+Provides-Extra: all
+Requires-Dist: nvidia-cublas==13.1.0.3.*; (sys_platform == 'linux' or sys_platform == 'win32') and extra == 'all'
+Requires-Dist: nvidia-cuda-cccl==13.0.85.*; (sys_platform == 'linux' or sys_platform == 'win32') and extra == 'all'
+Requires-Dist: nvidia-cuda-crt==13.0.88.*; (sys_platform == 'linux' or sys_platform == 'win32') and extra == 'all'
+Requires-Dist: nvidia-cuda-culibos==13.0.85.*; (sys_platform == 'linux') and extra == 'all'
+Requires-Dist: nvidia-cuda-cupti==13.0.85.*; (sys_platform == 'linux' or sys_platform == 'win32') and extra == 'all'
+Requires-Dist: nvidia-cuda-cuxxfilt==13.0.85.*; (sys_platform == 'linux' or sys_platform == 'win32') and extra == 'all'
+Requires-Dist: nvidia-cuda-nvcc==13.0.88.*; (sys_platform == 'linux' or sys_platform == 'win32') and extra == 'all'
+Requires-Dist: nvidia-cuda-nvrtc==13.0.88.*; (sys_platform == 'linux' or sys_platform == 'win32') and extra == 'all'
+Requires-Dist: nvidia-cuda-opencl==13.0.85.*; (sys_platform == 'linux' or sys_platform == 'win32') and extra == 'all'
+Requires-Dist: nvidia-cuda-profiler-api==13.0.85.*; (sys_platform == 'linux' or sys_platform == 'win32') and extra == 'all'
+Requires-Dist: nvidia-cuda-runtime==13.0.96.*; (sys_platform == 'linux' or sys_platform == 'win32') and extra == 'all'
+Requires-Dist: nvidia-cuda-sanitizer-api==13.0.85.*; (sys_platform == 'linux' or sys_platform == 'win32') and extra == 'all'
+Requires-Dist: nvidia-cufft==12.0.0.61.*; (sys_platform == 'linux' or sys_platform == 'win32') and extra == 'all'
+Requires-Dist: nvidia-cufile==1.15.1.6.*; (sys_platform == 'linux') and extra == 'all'
+Requires-Dist: nvidia-curand==10.4.0.35.*; (sys_platform == 'linux' or sys_platform == 'win32') and extra == 'all'
+Requires-Dist: nvidia-cusolver==12.0.4.66.*; (sys_platform == 'linux' or sys_platform == 'win32') and extra == 'all'
+Requires-Dist: nvidia-cusparse==12.6.3.3.*; (sys_platform == 'linux' or sys_platform == 'win32') and extra == 'all'
+Requires-Dist: nvidia-npp==13.0.1.2.*; (sys_platform == 'linux' or sys_platform == 'win32') and extra == 'all'
+Requires-Dist: nvidia-nvfatbin==13.0.85.*; (sys_platform == 'linux' or sys_platform == 'win32') and extra == 'all'
+Requires-Dist: nvidia-nvjitlink==13.0.88.*; (sys_platform == 'linux' or sys_platform == 'win32') and extra == 'all'
+Requires-Dist: nvidia-nvjpeg==13.0.1.86.*; (sys_platform == 'linux' or sys_platform == 'win32') and extra == 'all'
+Requires-Dist: nvidia-nvml-dev==13.0.87.*; (sys_platform == 'linux' or sys_platform == 'win32') and extra == 'all'
+Requires-Dist: nvidia-nvptxcompiler==13.0.88.*; (sys_platform == 'linux' or sys_platform == 'win32') and extra == 'all'
+Requires-Dist: nvidia-nvtx==13.0.85.*; (sys_platform == 'linux' or sys_platform == 'win32') and extra == 'all'
+Requires-Dist: nvidia-nvvm==13.0.88.*; (sys_platform == 'linux' or sys_platform == 'win32') and extra == 'all'
+Provides-Extra: cccl
+Requires-Dist: nvidia-cuda-cccl==13.0.85.*; (sys_platform == 'linux' or sys_platform == 'win32') and extra == 'cccl'
+Provides-Extra: crt
+Requires-Dist: nvidia-cuda-crt==13.0.88.*; (sys_platform == 'linux' or sys_platform == 'win32') and extra == 'crt'
+Provides-Extra: cublas
+Requires-Dist: nvidia-cublas==13.1.0.3.*; (sys_platform == 'linux' or sys_platform == 'win32') and extra == 'cublas'
+Provides-Extra: cudart
+Requires-Dist: nvidia-cuda-runtime==13.0.96.*; (sys_platform == 'linux' or sys_platform == 'win32') and extra == 'cudart'
+Provides-Extra: cufft
+Requires-Dist: nvidia-cufft==12.0.0.61.*; (sys_platform == 'linux' or sys_platform == 'win32') and extra == 'cufft'
+Provides-Extra: cufile
+Requires-Dist: nvidia-cufile==1.15.1.6.*; (sys_platform == 'linux') and extra == 'cufile'
+Provides-Extra: culibos
+Requires-Dist: nvidia-cuda-culibos==13.0.85.*; (sys_platform == 'linux') and extra == 'culibos'
+Provides-Extra: cupti
+Requires-Dist: nvidia-cuda-cupti==13.0.85.*; (sys_platform == 'linux' or sys_platform == 'win32') and extra == 'cupti'
+Provides-Extra: curand
+Requires-Dist: nvidia-curand==10.4.0.35.*; (sys_platform == 'linux' or sys_platform == 'win32') and extra == 'curand'
+Provides-Extra: cusolver
+Requires-Dist: nvidia-cusolver==12.0.4.66.*; (sys_platform == 'linux' or sys_platform == 'win32') and extra == 'cusolver'
+Provides-Extra: cusparse
+Requires-Dist: nvidia-cusparse==12.6.3.3.*; (sys_platform == 'linux' or sys_platform == 'win32') and extra == 'cusparse'
+Provides-Extra: cuxxfilt
+Requires-Dist: nvidia-cuda-cuxxfilt==13.0.85.*; (sys_platform == 'linux' or sys_platform == 'win32') and extra == 'cuxxfilt'
+Provides-Extra: npp
+Requires-Dist: nvidia-npp==13.0.1.2.*; (sys_platform == 'linux' or sys_platform == 'win32') and extra == 'npp'
+Provides-Extra: nvcc
+Requires-Dist: nvidia-cuda-nvcc==13.0.88.*; (sys_platform == 'linux' or sys_platform == 'win32') and extra == 'nvcc'
+Provides-Extra: nvfatbin
+Requires-Dist: nvidia-nvfatbin==13.0.85.*; (sys_platform == 'linux' or sys_platform == 'win32') and extra == 'nvfatbin'
+Provides-Extra: nvjitlink
+Requires-Dist: nvidia-nvjitlink==13.0.88.*; (sys_platform == 'linux' or sys_platform == 'win32') and extra == 'nvjitlink'
+Provides-Extra: nvjpeg
+Requires-Dist: nvidia-nvjpeg==13.0.1.86.*; (sys_platform == 'linux' or sys_platform == 'win32') and extra == 'nvjpeg'
+Provides-Extra: nvml
+Requires-Dist: nvidia-nvml-dev==13.0.87.*; (sys_platform == 'linux' or sys_platform == 'win32') and extra == 'nvml'
+Provides-Extra: nvptxcompiler
+Requires-Dist: nvidia-nvptxcompiler==13.0.88.*; (sys_platform == 'linux' or sys_platform == 'win32') and extra == 'nvptxcompiler'
+Provides-Extra: nvrtc
+Requires-Dist: nvidia-cuda-nvrtc==13.0.88.*; (sys_platform == 'linux' or sys_platform == 'win32') and extra == 'nvrtc'
+Provides-Extra: nvtx
+Requires-Dist: nvidia-nvtx==13.0.85.*; (sys_platform == 'linux' or sys_platform == 'win32') and extra == 'nvtx'
+Provides-Extra: nvvm
+Requires-Dist: nvidia-nvvm==13.0.88.*; (sys_platform == 'linux' or sys_platform == 'win32') and extra == 'nvvm'
+Provides-Extra: opencl
+Requires-Dist: nvidia-cuda-opencl==13.0.85.*; (sys_platform == 'linux' or sys_platform == 'win32') and extra == 'opencl'
+Provides-Extra: profiler
+Requires-Dist: nvidia-cuda-profiler-api==13.0.85.*; (sys_platform == 'linux' or sys_platform == 'win32') and extra == 'profiler'
+Provides-Extra: sanitizer
+Requires-Dist: nvidia-cuda-sanitizer-api==13.0.85.*; (sys_platform == 'linux' or sys_platform == 'win32') and extra == 'sanitizer'
+Description-Content-Type: text/markdown
+
+# cuda-toolkit 13.0.2
+
+### [NVIDIA CUDA Toolkit](https://developer.nvidia.com/cuda-toolkit)
+
+> The NVIDIA CUDA Toolkit provides a development environment for creating high-performance, GPU-accelerated applications. With it, you can develop, optimize, and deploy your applications on GPU-accelerated embedded systems, desktop workstations, enterprise data centers, cloud-based platforms, and supercomputers. The toolkit includes GPU-accelerated libraries, debugging and optimization tools, a C/C++ compiler, and a runtime library.
+
+### `cuda-toolkit` package
+
+The `cuda-toolkit` package is a meta-package (a package that contains no software and only installs other packages) to install all or part of the NVIDIA CUDA Toolkit.
+
+For instructions on how to use the `cuda-toolkit` package, please refer to the [NVIDIA CUDA Toolkit documentation](https://docs.nvidia.com/cuda/) and follow the installation guide for your platform. A summary of usage is also available below.
+
+### Using the `cuda-toolkit` package
+
+The `cuda-toolkit` package uses package extras to install all or part of the CUDA Toolkit.
+Some examples of using the `cuda-toolkit` meta-package with extras:
+
+Install all of the CUDA Toolkit
+```
+pip install cuda-toolkit[all]
+```
+
+Install just the CUDA Runtime
+```
+pip install cuda-toolkit[cudart]
+```
+
+Install cuBLAS, cuSOLVER, and cuSPARSE
+```
+pip install cuda-toolkit[cublas,cusolver,cusparse]
+```
+
+### Available extras
+
+| Extra | Package | Version |
+|-------|---------|---------|
+| `all` | All packages below |  |
+| cccl | nvidia-cuda-cccl | 13.0.85  |
+| crt | nvidia-cuda-crt | 13.0.88  |
+| cublas | nvidia-cublas | 13.1.0.3  |
+| cudart | nvidia-cuda-runtime | 13.0.96  |
+| cufft | nvidia-cufft | 12.0.0.61  |
+| cufile | nvidia-cufile | 1.15.1.6  |
+| culibos | nvidia-cuda-culibos | 13.0.85  |
+| cupti | nvidia-cuda-cupti | 13.0.85  |
+| curand | nvidia-curand | 10.4.0.35  |
+| cusolver | nvidia-cusolver | 12.0.4.66  |
+| cusparse | nvidia-cusparse | 12.6.3.3  |
+| cuxxfilt | nvidia-cuda-cuxxfilt | 13.0.85  |
+| npp | nvidia-npp | 13.0.1.2  |
+| nvcc | nvidia-cuda-nvcc | 13.0.88  |
+| nvfatbin | nvidia-nvfatbin | 13.0.85  |
+| nvjitlink | nvidia-nvjitlink | 13.0.88  |
+| nvjpeg | nvidia-nvjpeg | 13.0.1.86  |
+| nvml | nvidia-nvml-dev | 13.0.87  |
+| nvptxcompiler | nvidia-nvptxcompiler | 13.0.88  |
+| nvrtc | nvidia-cuda-nvrtc | 13.0.88  |
+| nvtx | nvidia-nvtx | 13.0.85  |
+| nvvm | nvidia-nvvm | 13.0.88  |
+| opencl | nvidia-cuda-opencl | 13.0.85  |
+| profiler | nvidia-cuda-profiler-api | 13.0.85  |
+| sanitizer | nvidia-cuda-sanitizer-api | 13.0.85  |

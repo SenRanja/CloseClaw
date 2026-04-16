@@ -1,0 +1,11 @@
+prefix=/srv/scratch/z5526880/6713group/6713
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: XCB Dbe
+Description: XCB Double Buffer Extension
+Version: 1.17.0
+Requires.private: xcb
+Libs: -L${libdir} -lxcb-dbe
+Cflags: -I${includedir}

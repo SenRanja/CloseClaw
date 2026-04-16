@@ -1,0 +1,13 @@
+### Note: DO NOT use quantized model or quantization_bit when merging lora adapters
+
+### model
+model_name_or_path: /srv/scratch/z5526880/models/Qwen3-0.6B
+adapter_name_or_path: /srv/scratch/z5526880/6713group/output/qwen3-0.6b/lora/sft
+template: qwen3_nothink
+trust_remote_code: true
+
+### export
+export_dir: /srv/scratch/z5526880/6713group/output/qwen3-4b/sft_merged
+export_size: 5
+export_device: cpu  # choices: [cpu, auto]
+export_legacy_format: false

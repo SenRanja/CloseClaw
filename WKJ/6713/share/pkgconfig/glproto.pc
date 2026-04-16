@@ -1,0 +1,7 @@
+prefix=/srv/scratch/z5526880/6713group/6713
+includedir=${prefix}/include
+ 
+Name: GLProto
+Description: GL extension headers
+Version: 1.4.17
+Cflags: -I${includedir}

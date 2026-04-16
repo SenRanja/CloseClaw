@@ -1,0 +1,8 @@
+prefix=/srv/scratch/z5526880/6713group/6713
+includedir=${prefix}/include
+
+Name: FixesProto
+Description: X Fixes extension headers
+Version: 6.1
+Cflags: -I${includedir}
+Requires: xextproto >= 7.0.99.1

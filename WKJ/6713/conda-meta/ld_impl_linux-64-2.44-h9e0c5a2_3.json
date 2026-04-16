@@ -1,0 +1,54 @@
+{
+  "name": "ld_impl_linux-64",
+  "version": "2.44",
+  "build": "h9e0c5a2_3",
+  "build_number": 3,
+  "channel": "https://repo.anaconda.com/pkgs/main/linux-64",
+  "subdir": "linux-64",
+  "fn": "ld_impl_linux-64-2.44-h9e0c5a2_3.conda",
+  "md5": "c563bb71f4df90fc3b92cde204827564",
+  "legacy_bz2_md5": "f966e8da4e4b1aa50ffd96bae411599a",
+  "url": "https://repo.anaconda.com/pkgs/main/linux-64/ld_impl_linux-64-2.44-h9e0c5a2_3.conda",
+  "sha256": "4a4875ab4354d4a1bf1695850efad8787d7063387ed6b5aec5ecb659869e2590",
+  "depends": [
+    "__glibc >=2.28,<3.0.a0"
+  ],
+  "constrains": [
+    "binutils_impl_linux-64 2.44"
+  ],
+  "license": "GPL-3.0-only",
+  "license_family": "GPL",
+  "timestamp": 1773255564362,
+  "size": 742162,
+  "requested_spec": "None",
+  "package_tarball_full_path": "/srv/scratch/z5526880/miniconda3/pkgs/ld_impl_linux-64-2.44-h9e0c5a2_3.conda",
+  "extracted_package_dir": "/srv/scratch/z5526880/miniconda3/pkgs/ld_impl_linux-64-2.44-h9e0c5a2_3",
+  "files": [
+    "bin/x86_64-conda-linux-gnu-ld",
+    "x86_64-conda-linux-gnu/bin/ld"
+  ],
+  "paths_data": {
+    "paths_version": 1,
+    "paths": [
+      {
+        "_path": "bin/x86_64-conda-linux-gnu-ld",
+        "prefix_placeholder": "/home/task_177325514644898/croot/binutils_split_1773255467083/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placeh",
+        "file_mode": "binary",
+        "path_type": "hardlink",
+        "sha256": "e5e2063623d80bd5956391561faf35295bacaa03af1c0c1f6e4391d08d48364f",
+        "size_in_bytes": 2941304,
+        "sha256_in_prefix": "d5bcb24861184a34320e9a473137876a69a00bfb91497be3bd86020e8474cdee"
+      },
+      {
+        "_path": "x86_64-conda-linux-gnu/bin/ld",
+        "path_type": "softlink",
+        "sha256": "e5e2063623d80bd5956391561faf35295bacaa03af1c0c1f6e4391d08d48364f",
+        "size_in_bytes": 2941304
+      }
+    ]
+  },
+  "link": {
+    "source": "/srv/scratch/z5526880/miniconda3/pkgs/ld_impl_linux-64-2.44-h9e0c5a2_3",
+    "type": 1
+  }
+}

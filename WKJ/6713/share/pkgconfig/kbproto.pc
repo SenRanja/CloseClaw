@@ -1,0 +1,7 @@
+prefix=/srv/scratch/z5526880/6713group/6713
+includedir=${prefix}/include
+ 
+Name: KBProto
+Description: KB extension headers
+Version: 1.0.7
+Cflags: -I${includedir}

@@ -1,0 +1,7 @@
+prefix=/srv/scratch/z5526880/6713group/6713
+includedir=${prefix}/include
+ 
+Name: XCMiscProto
+Description: XCMisc extension headers
+Version: 1.2.2
+Cflags: -I${includedir}

@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Movie Review Sentiment",
+  "version": "1.0",
+  "description": "Automatically labels movie review sentiment using local Qwen3-0.6B model",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [],
+  "host_permissions": [
+    "http://127.0.0.1:8765/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.rottentomatoes.com/*",
+        "*://www.imdb.com/title/*/reviews*"
+      ],
+      "js": ["content.js"],
+      "css": ["badge.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Sentiment Analyzer"
+  }
+}

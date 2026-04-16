@@ -1,0 +1,7 @@
+prefix=/srv/scratch/z5526880/6713group/6713
+includedir=${prefix}/include
+ 
+Name: XF86VidModeProto
+Description: XF86VidMode extension headers
+Version: 2.3.1
+Cflags: -I${includedir}

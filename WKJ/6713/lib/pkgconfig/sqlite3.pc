@@ -1,0 +1,13 @@
+# Package Information for pkg-config
+
+prefix=/srv/scratch/z5526880/6713group/6713
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: SQLite
+Description: SQL database engine
+Version: 3.51.2
+Libs: -L${libdir} -lsqlite3
+Libs.private: -lm -lz -ldl -lpthread 
+Cflags: -I${includedir}

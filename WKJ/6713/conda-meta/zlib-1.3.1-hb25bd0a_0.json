@@ -1,0 +1,78 @@
+{
+  "name": "zlib",
+  "version": "1.3.1",
+  "build": "hb25bd0a_0",
+  "build_number": 0,
+  "channel": "https://repo.anaconda.com/pkgs/main/linux-64",
+  "subdir": "linux-64",
+  "fn": "zlib-1.3.1-hb25bd0a_0.conda",
+  "md5": "9f3a877e5e0fa0fb39253a59ff824861",
+  "legacy_bz2_md5": "b660b503eb1526eaba847669d0c3a678",
+  "url": "https://repo.anaconda.com/pkgs/main/linux-64/zlib-1.3.1-hb25bd0a_0.conda",
+  "sha256": "cf30f83189a30b12a9239f132ea0ce676fa822a52045adb0f9ff9b3b4d79ead6",
+  "depends": [
+    "__glibc >=2.17,<3.0.a0",
+    "libgcc-ng >=11.2.0",
+    "libzlib 1.3.1 hb25bd0a_0"
+  ],
+  "constrains": [],
+  "license": "Zlib",
+  "license_family": "OTHER",
+  "timestamp": 1756475939641,
+  "size": 98150,
+  "requested_spec": "None",
+  "package_tarball_full_path": "/srv/scratch/z5526880/miniconda3/pkgs/zlib-1.3.1-hb25bd0a_0",
+  "extracted_package_dir": "/srv/scratch/z5526880/miniconda3/pkgs/zlib-1.3.1-hb25bd0a_0",
+  "files": [
+    "include/zconf.h",
+    "include/zlib.h",
+    "lib/libz.a",
+    "lib/libz.so",
+    "lib/pkgconfig/zlib.pc"
+  ],
+  "paths_data": {
+    "paths_version": 1,
+    "paths": [
+      {
+        "_path": "include/zconf.h",
+        "path_type": "hardlink",
+        "sha256": "44e543ff4514c7a9a01d648019c2c9a81d1105cbfa3c77f1faf6cd86eafa8abd",
+        "size_in_bytes": 16464,
+        "sha256_in_prefix": "44e543ff4514c7a9a01d648019c2c9a81d1105cbfa3c77f1faf6cd86eafa8abd"
+      },
+      {
+        "_path": "include/zlib.h",
+        "path_type": "hardlink",
+        "sha256": "8a5579af72ea4f427ff00a4150f0ccb3fc5c1e4379f726e101133b1ab9fc600c",
+        "size_in_bytes": 96829,
+        "sha256_in_prefix": "8a5579af72ea4f427ff00a4150f0ccb3fc5c1e4379f726e101133b1ab9fc600c"
+      },
+      {
+        "_path": "lib/libz.a",
+        "path_type": "hardlink",
+        "sha256": "a87faa8280f7cb45c61376d4c71c5be94f3068b12162416c8b7b18e355f01a2d",
+        "size_in_bytes": 153844,
+        "sha256_in_prefix": "a87faa8280f7cb45c61376d4c71c5be94f3068b12162416c8b7b18e355f01a2d"
+      },
+      {
+        "_path": "lib/libz.so",
+        "path_type": "softlink",
+        "sha256": "dc77aca1b8d60ba8f1e2b2cc0659545c4400ae03b5a7925cd802b02057c214a7",
+        "size_in_bytes": 108688
+      },
+      {
+        "_path": "lib/pkgconfig/zlib.pc",
+        "prefix_placeholder": "/croot/zlib-split_1756475892340/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placeh",
+        "file_mode": "text",
+        "path_type": "hardlink",
+        "sha256": "2267a78c914dab8b4750fb9eb843ed566d5853c3d66c2f0765405b26b7282225",
+        "size_in_bytes": 503,
+        "sha256_in_prefix": "2249da35c1a2214d20d3a84f6ba269a6b854a9f15db86bbac207e5cf3c56c5f3"
+      }
+    ]
+  },
+  "link": {
+    "source": "/srv/scratch/z5526880/miniconda3/pkgs/zlib-1.3.1-hb25bd0a_0",
+    "type": 1
+  }
+}

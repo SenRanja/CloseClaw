@@ -1,0 +1,7 @@
+prefix=/srv/scratch/z5526880/6713group/6713
+includedir=${prefix}/include
+ 
+Name: ResourceProto
+Description: Resource extension headers
+Version: 1.2.0
+Cflags: -I${includedir}

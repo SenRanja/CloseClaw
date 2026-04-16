@@ -1,0 +1,7 @@
+prefix=/srv/scratch/z5526880/6713group/6713
+includedir=${prefix}/include
+
+Name: VideoProto
+Description: Video extension headers
+Version: 2.3.3
+Cflags: -I${includedir}

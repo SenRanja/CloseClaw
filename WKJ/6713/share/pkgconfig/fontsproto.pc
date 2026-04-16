@@ -1,0 +1,7 @@
+prefix=/srv/scratch/z5526880/6713group/6713
+includedir=${prefix}/include
+ 
+Name: FontsProto
+Description: Fonts extension headers
+Version: 2.1.3
+Cflags: -I${includedir}

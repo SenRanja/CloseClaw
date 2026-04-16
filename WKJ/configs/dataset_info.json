@@ -1,0 +1,21 @@
+{
+  "sentiment_sft_train": {
+    "file_name": "../data/sft/sft_train.json"
+  },
+  "sentiment_sft_test": {
+    "file_name": "../data/sft/sft_test.json"
+  },
+  "sentiment_sft_val": {
+    "file_name": "../data/sft/val/sft_val.json"
+  },
+  "sentiment_dpo_train": {
+    "file_name": "../data/dpo/dpo_train.json",
+    "formatting": "sharegpt",
+    "ranking": true,
+    "columns": {
+      "messages": "conversations",
+      "chosen": "chosen",
+      "rejected": "rejected"
+    }
+  }
+}

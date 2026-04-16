@@ -1,0 +1,7 @@
+prefix=/srv/scratch/z5526880/6713group/6713
+includedir=${prefix}/include
+
+Name: XwaylandProto
+Description: Xwayland extension headers
+Version: 1.0
+Cflags: -I${includedir}

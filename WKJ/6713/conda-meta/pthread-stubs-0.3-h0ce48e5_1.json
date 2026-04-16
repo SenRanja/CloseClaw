@@ -1,0 +1,45 @@
+{
+  "name": "pthread-stubs",
+  "version": "0.3",
+  "build": "h0ce48e5_1",
+  "build_number": 1,
+  "channel": "https://repo.anaconda.com/pkgs/main/linux-64",
+  "subdir": "linux-64",
+  "fn": "pthread-stubs-0.3-h0ce48e5_1.conda",
+  "md5": "973a642312d2a28927aaf5b477c67250",
+  "legacy_bz2_md5": "de7d258a4efcd8a63df73099c8e5d954",
+  "url": "https://repo.anaconda.com/pkgs/main/linux-64/pthread-stubs-0.3-h0ce48e5_1.conda",
+  "sha256": "119c5ad43fb92b2f14a25c53276072ee77ff6b40c72e6617b523b9de0eb0822a",
+  "depends": [
+    "libgcc-ng >=7.2.0"
+  ],
+  "constrains": [],
+  "license": "MIT",
+  "license_family": "MIT",
+  "timestamp": 1505733967605,
+  "size": 5360,
+  "requested_spec": "None",
+  "package_tarball_full_path": "/srv/scratch/z5526880/miniconda3/pkgs/pthread-stubs-0.3-h0ce48e5_1.conda",
+  "extracted_package_dir": "/srv/scratch/z5526880/miniconda3/pkgs/pthread-stubs-0.3-h0ce48e5_1",
+  "files": [
+    "lib/pkgconfig/pthread-stubs.pc"
+  ],
+  "paths_data": {
+    "paths_version": 1,
+    "paths": [
+      {
+        "_path": "lib/pkgconfig/pthread-stubs.pc",
+        "prefix_placeholder": "/opt/anaconda1anaconda2anaconda3",
+        "file_mode": "text",
+        "path_type": "hardlink",
+        "sha256": "9ce637c8a9c65d1287a6a0aa7a1dc0a65810fe8811403f2247afdaf671a1c5db",
+        "size_in_bytes": 197,
+        "sha256_in_prefix": "648a01d690830db1c4f7080a40a0fd6c07ad0cc6c601c8c885fa39943b42e271"
+      }
+    ]
+  },
+  "link": {
+    "source": "/srv/scratch/z5526880/miniconda3/pkgs/pthread-stubs-0.3-h0ce48e5_1",
+    "type": 1
+  }
+}

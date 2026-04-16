@@ -1,0 +1,718 @@
+_name_or_path:
+    value: /srv/scratch/z5526880/models/Qwen3-0.6B
+_wandb:
+    value:
+        cli_version: 0.25.1
+        e:
+            fbzmyzpdtp8dxynzw7ff1vyscp9em4kf:
+                args:
+                    - _qwen_dpo_run.yaml
+                cpu_count: 32
+                cpu_count_logical: 32
+                cudaVersion: "13.1"
+                disk:
+                    /:
+                        total: "34342961152"
+                        used: "17790443520"
+                email: zkjbncd@gmail.com
+                executable: /srv/scratch/z5526880/6713group/6713/bin/python3.11
+                gpu: NVIDIA H200
+                gpu_count: 1
+                gpu_nvidia:
+                    - architecture: Hopper
+                      cudaCores: 16896
+                      memoryTotal: "150754820096"
+                      name: NVIDIA H200
+                      uuid: GPU-eddd4468-0a4b-bce5-943b-3d25872ca12b
+                host: k203
+                memory:
+                    total: "1081887223808"
+                os: Linux-4.18.0-553.97.1.el8_10.x86_64-x86_64-with-glibc2.28
+                program: /srv/scratch/z5526880/6713group/6713/bin/llamafactory-cli
+                python: CPython 3.11.15
+                root: /srv/scratch/z5526880/6713group/configs
+                startedAt: "2026-04-08T02:03:31.780162Z"
+                writerId: fbzmyzpdtp8dxynzw7ff1vyscp9em4kf
+        m:
+            - "1": train/global_step
+              "6":
+                - 3
+              "7": []
+            - "2": '*'
+              "5": 1
+              "6":
+                - 1
+              "7": []
+        python_version: 3.11.15
+        t:
+            "1":
+                - 1
+                - 11
+                - 41
+                - 49
+                - 51
+                - 71
+                - 84
+                - 98
+                - 105
+            "2":
+                - 1
+                - 11
+                - 41
+                - 49
+                - 51
+                - 71
+                - 84
+                - 98
+                - 105
+            "3":
+                - 7
+                - 13
+                - 19
+                - 62
+                - 66
+            "4": 3.11.15
+            "5": 0.25.1
+            "6": 5.2.0
+            "9":
+                "1": transformers_trainer
+            "12": 0.25.1
+            "13": linux-x86_64
+accelerator_config:
+    value:
+        dispatch_batches: null
+        even_batches: true
+        gradient_accumulation_kwargs: null
+        non_blocking: false
+        split_batches: false
+        use_seedable_sampler: true
+adam_beta1:
+    value: 0.9
+adam_beta2:
+    value: 0.999
+adam_epsilon:
+    value: 1e-08
+architectures:
+    value:
+        - Qwen3ForCausalLM
+attention_bias:
+    value: false
+attention_dropout:
+    value: 0
+auto_find_batch_size:
+    value: false
+average_tokens_across_devices:
+    value: true
+batch_eval_metrics:
+    value: false
+bf16:
+    value: true
+bf16_full_eval:
+    value: false
+bos_token_id:
+    value: null
+chunk_size_feed_forward:
+    value: 0
+data_args:
+    value:
+        buffer_size: 16384
+        cutoff_len: 512
+        data_shared_file_system: false
+        dataset:
+            - sentiment_dpo_train
+        dataset_dir: ../configs
+        default_system: null
+        enable_thinking: true
+        eval_dataset: null
+        eval_num_beams: null
+        eval_on_each_dataset: false
+        ignore_pad_token_for_loss: true
+        interleave_probs: null
+        mask_history: false
+        max_samples: null
+        media_dir: ../configs
+        mix_strategy: concat
+        neat_packing: false
+        overwrite_cache: false
+        packing: false
+        preprocessing_batch_size: 1000
+        preprocessing_num_workers: 16
+        streaming: false
+        template: qwen3_nothink
+        tokenized_path: null
+        tool_format: null
+        train_on_prompt: false
+        val_size: 0
+data_seed:
+    value: null
+dataloader_drop_last:
+    value: false
+dataloader_num_workers:
+    value: 4
+dataloader_persistent_workers:
+    value: false
+dataloader_pin_memory:
+    value: true
+dataloader_prefetch_factor:
+    value: null
+ddp_backend:
+    value: null
+ddp_broadcast_buffers:
+    value: null
+ddp_bucket_cap_mb:
+    value: null
+ddp_find_unused_parameters:
+    value: null
+ddp_timeout:
+    value: 180000000
+debug:
+    value: []
+deepspeed:
+    value: null
+disable_tqdm:
+    value: false
+do_eval:
+    value: false
+do_predict:
+    value: false
+do_train:
+    value: true
+dtype:
+    value: bfloat16
+enable_jit_checkpoint:
+    value: false
+eos_token_id:
+    value: 151645
+eval_accumulation_steps:
+    value: null
+eval_delay:
+    value: 0
+eval_do_concat_batches:
+    value: true
+eval_on_start:
+    value: false
+eval_steps:
+    value: null
+eval_strategy:
+    value: "no"
+eval_use_gather_object:
+    value: false
+finetuning_args:
+    value:
+        additional_target: null
+        apollo_layerwise: false
+        apollo_proj: random
+        apollo_proj_type: std
+        apollo_rank: 16
+        apollo_scale: 32
+        apollo_scale_front: false
+        apollo_scale_type: channel
+        apollo_target:
+            - all
+        apollo_update_interval: 200
+        asft_alpha: 0.1
+        badam_mask_mode: adjacent
+        badam_mode: layer
+        badam_start_block: null
+        badam_switch_interval: 50
+        badam_switch_mode: ascending
+        badam_update_ratio: 0.05
+        badam_verbose: 0
+        compute_accuracy: false
+        create_new_adapter: false
+        disable_shuffling: false
+        dpo_label_smoothing: 0
+        eaft_alpha: 1
+        early_stopping_steps: null
+        finetuning_type: lora
+        freeze_extra_modules: null
+        freeze_language_model: false
+        freeze_multi_modal_projector: true
+        freeze_trainable_layers: 2
+        freeze_trainable_modules:
+            - all
+        freeze_vision_tower: true
+        galore_layerwise: false
+        galore_proj_type: std
+        galore_rank: 16
+        galore_scale: 2
+        galore_target:
+            - all
+        galore_update_interval: 200
+        hyper_parallel_args: null
+        include_effective_tokens_per_second: false
+        kto_chosen_weight: 1
+        kto_rejected_weight: 1
+        ld_alpha: null
+        lora_alpha: 64
+        lora_dropout: 0
+        lora_rank: 32
+        lora_target:
+            - all
+        loraplus_lr_embedding: 1e-06
+        loraplus_lr_ratio: null
+        module_dropout: 0
+        oft_block_size: 32
+        oft_rank: 0
+        oft_target:
+            - all
+        pissa_convert: false
+        pissa_init: false
+        pissa_iter: 16
+        plot_loss: true
+        ppo_buffer_size: 1
+        ppo_epochs: 4
+        ppo_score_norm: false
+        ppo_target: 6
+        ppo_whiten_rewards: false
+        pref_bco_weight: 0
+        pref_beta: 0.1
+        pref_ftx: 0
+        pref_loss: sigmoid
+        pure_bf16: false
+        ref_model: null
+        ref_model_adapters: null
+        ref_model_quantization_bit: null
+        reward_model: null
+        reward_model_adapters: null
+        reward_model_quantization_bit: null
+        reward_model_type: lora
+        simpo_gamma: 0.5
+        stage: dpo
+        swanlab_api_key: <SWANLAB_API_KEY>
+        swanlab_lark_secret: null
+        swanlab_lark_webhook_url: null
+        swanlab_logdir: null
+        swanlab_mode: cloud
+        swanlab_project: llamafactory
+        swanlab_run_name: null
+        swanlab_workspace: null
+        use_adam_mini: false
+        use_apollo: false
+        use_asft_loss: false
+        use_badam: false
+        use_dft_loss: false
+        use_dora: false
+        use_eaft_loss: false
+        use_galore: false
+        use_hyper_parallel: false
+        use_llama_pro: false
+        use_mca: false
+        use_muon: false
+        use_rslora: false
+        use_swanlab: false
+fp8:
+    value: false
+fp8_backend:
+    value: auto
+fp8_enable_fsdp_float8_all_gather:
+    value: false
+fp16:
+    value: false
+fp16_full_eval:
+    value: false
+fsdp:
+    value: []
+fsdp_config:
+    value:
+        min_num_params: 0
+        xla: false
+        xla_fsdp_grad_ckpt: false
+        xla_fsdp_v2: false
+full_determinism:
+    value: false
+generating_args:
+    value:
+        do_sample: true
+        length_penalty: 1
+        max_new_tokens: 1024
+        num_beams: 1
+        repetition_penalty: 1
+        skip_special_tokens: true
+        temperature: 0.95
+        top_k: 50
+        top_p: 0.7
+generation_config:
+    value: null
+generation_max_length:
+    value: 512
+generation_num_beams:
+    value: null
+gradient_accumulation_steps:
+    value: 1
+gradient_checkpointing:
+    value: false
+gradient_checkpointing_kwargs:
+    value: null
+greater_is_better:
+    value: null
+head_dim:
+    value: 128
+hidden_act:
+    value: silu
+hidden_size:
+    value: 1024
+hub_always_push:
+    value: false
+hub_model_id:
+    value: null
+hub_private_repo:
+    value: null
+hub_revision:
+    value: null
+hub_strategy:
+    value: every_save
+hub_token:
+    value: <HUB_TOKEN>
+id2label:
+    value:
+        "0": LABEL_0
+        "1": LABEL_1
+ignore_data_skip:
+    value: false
+include_for_metrics:
+    value: []
+include_num_input_tokens_seen:
+    value: "no"
+initializer_range:
+    value: 0.02
+intermediate_size:
+    value: 3072
+is_encoder_decoder:
+    value: false
+label_names:
+    value:
+        - labels
+label_smoothing_factor:
+    value: 0
+label2id:
+    value:
+        LABEL_0: 0
+        LABEL_1: 1
+layer_types:
+    value:
+        - full_attention
+        - full_attention
+        - full_attention
+        - full_attention
+        - full_attention
+        - full_attention
+        - full_attention
+        - full_attention
+        - full_attention
+        - full_attention
+        - full_attention
+        - full_attention
+        - full_attention
+        - full_attention
+        - full_attention
+        - full_attention
+        - full_attention
+        - full_attention
+        - full_attention
+        - full_attention
+        - full_attention
+        - full_attention
+        - full_attention
+        - full_attention
+        - full_attention
+        - full_attention
+        - full_attention
+        - full_attention
+learning_rate:
+    value: 5e-06
+length_column_name:
+    value: length
+liger_kernel_config:
+    value: null
+load_best_model_at_end:
+    value: false
+local_rank:
+    value: -1
+log_level:
+    value: passive
+log_level_replica:
+    value: warning
+log_on_each_node:
+    value: true
+logging_dir:
+    value: null
+logging_first_step:
+    value: false
+logging_nan_inf_filter:
+    value: true
+logging_steps:
+    value: 10
+logging_strategy:
+    value: steps
+lr_scheduler_kwargs:
+    value: null
+lr_scheduler_type:
+    value: cosine
+master_addr:
+    value: null
+master_port:
+    value: null
+max_grad_norm:
+    value: 1
+max_position_embeddings:
+    value: 40960
+max_steps:
+    value: -1
+max_window_layers:
+    value: 28
+metric_for_best_model:
+    value: null
+model/num_parameters:
+    value: 771817472
+model_args:
+    value:
+        adapter_folder: null
+        adapter_name_or_path:
+            - /srv/scratch/z5526880/6713group/output/qwen3-0.6b/lora/sft
+        add_special_tokens: null
+        add_tokens: null
+        audio_sampling_rate: 16000
+        block_diag_attn: false
+        cache_dir: null
+        chunk_size: 8192
+        compute_dtype: torch.bfloat16
+        cpu_infer: 32
+        crop_to_patches: false
+        device_map:
+            "": cuda:0
+        disable_gradient_checkpointing: false
+        double_quantization: true
+        enable_liger_kernel: false
+        export_device: cpu
+        export_dir: null
+        export_hub_model_id: null
+        export_legacy_format: false
+        export_quantization_bit: null
+        export_quantization_dataset: null
+        export_quantization_maxlen: 1024
+        export_quantization_nsamples: 128
+        export_size: 5
+        flash_attn: AUTO
+        hf_hub_token: <HF_HUB_TOKEN>
+        image_do_pan_and_scan: false
+        image_max_pixels: 589824
+        image_min_pixels: 1024
+        infer_backend: HF
+        infer_dtype: auto
+        init_special_tokens: noise_init
+        kt_force_think: false
+        kt_maxlen: 4096
+        kt_mode: normal
+        kt_optimize_rule: null
+        kt_use_cuda_graph: true
+        low_cpu_mem_usage: true
+        mixture_of_depths: null
+        mode: normal
+        model_max_length: 512
+        model_name_or_path: /srv/scratch/z5526880/models/Qwen3-0.6B
+        model_revision: main
+        moe_aux_loss_coef: null
+        ms_hub_token: <MS_HUB_TOKEN>
+        new_special_tokens_config: null
+        offload_folder: offload
+        om_hub_token: <OM_HUB_TOKEN>
+        print_param_status: false
+        quantization_bit: null
+        quantization_device_map: null
+        quantization_method: BNB
+        quantization_type: nf4
+        resize_vocab: false
+        rope_scaling: null
+        sglang_config: null
+        sglang_lora_backend: triton
+        sglang_maxlen: 4096
+        sglang_mem_fraction: 0.7
+        sglang_tp_size: -1
+        shift_attn: false
+        split_special_tokens: false
+        train_from_scratch: false
+        trust_remote_code: true
+        upcast_layernorm: false
+        upcast_lmhead_output: false
+        use_audio_in_video: false
+        use_fast_tokenizer: true
+        use_kt: false
+        use_kv_cache: true
+        use_reentrant_gc: true
+        use_unsloth: false
+        use_unsloth_gc: false
+        use_v1_kernels: false
+        video_fps: 2
+        video_max_pixels: 65536
+        video_maxlen: 128
+        video_min_pixels: 256
+        vllm_config: null
+        vllm_enforce_eager: false
+        vllm_gpu_util: 0.7
+        vllm_max_lora_rank: 32
+        vllm_maxlen: 4096
+model_type:
+    value: qwen3
+neftune_noise_alpha:
+    value: null
+num_attention_heads:
+    value: 16
+num_hidden_layers:
+    value: 28
+num_key_value_heads:
+    value: 8
+num_train_epochs:
+    value: 1
+optim:
+    value: adamw_torch_fused
+optim_args:
+    value: null
+optim_target_modules:
+    value: null
+output_attentions:
+    value: false
+output_dir:
+    value: /srv/scratch/z5526880/6713group/output/qwen3-4b/lora/dpo
+output_hidden_states:
+    value: false
+overwrite_output_dir:
+    value: true
+pad_token_id:
+    value: 151643
+parallelism_config:
+    value: null
+peft_config:
+    value:
+        default:
+            alora_invocation_tokens: null
+            arrow_config: null
+            auto_mapping: null
+            base_model_name_or_path: /srv/scratch/z5526880/models/Qwen3-0.6B
+            bias: none
+            corda_config: null
+            ensure_weight_tying: false
+            eva_config: null
+            exclude_modules: null
+            fan_in_fan_out: false
+            inference_mode: false
+            init_lora_weights: true
+            layer_replication: null
+            layers_pattern: null
+            layers_to_transform: null
+            lora_alpha: 64
+            lora_bias: false
+            lora_dropout: 0
+            megatron_config: null
+            megatron_core: megatron.core
+            modules_to_save: null
+            peft_type: LORA
+            peft_version: 0.18.1
+            qalora_group_size: 16
+            r: 32
+            revision: null
+            runtime_config:
+                ephemeral_gpu_offload: false
+            target_modules:
+                - o_proj
+                - down_proj
+                - k_proj
+                - gate_proj
+                - q_proj
+                - v_proj
+                - up_proj
+            target_parameters: null
+            task_type: CAUSAL_LM
+            trainable_token_indices: null
+            use_dora: false
+            use_qalora: false
+            use_rslora: false
+per_device_eval_batch_size:
+    value: 8
+per_device_train_batch_size:
+    value: 32
+predict_with_generate:
+    value: false
+prediction_loss_only:
+    value: false
+problem_type:
+    value: null
+project:
+    value: huggingface
+push_to_hub:
+    value: false
+ray_init_kwargs:
+    value: null
+ray_num_workers:
+    value: 1
+remove_unused_columns:
+    value: false
+report_to:
+    value:
+        - wandb
+restore_callback_states_from_checkpoint:
+    value: false
+resume_from_checkpoint:
+    value: null
+return_dict:
+    value: true
+rms_norm_eps:
+    value: 1e-06
+rope_parameters:
+    value:
+        rope_theta: 1000000
+        rope_type: default
+run_name:
+    value: qwen3_dpo_sentiment
+save_on_each_node:
+    value: false
+save_only_model:
+    value: false
+save_steps:
+    value: 500
+save_strategy:
+    value: steps
+save_total_limit:
+    value: null
+seed:
+    value: 42
+skip_memory_metrics:
+    value: true
+sliding_window:
+    value: null
+sortish_sampler:
+    value: false
+tf32:
+    value: null
+tie_word_embeddings:
+    value: true
+torch_compile:
+    value: false
+torch_compile_backend:
+    value: null
+torch_compile_mode:
+    value: null
+torch_empty_cache_steps:
+    value: null
+trackio_space_id:
+    value: trackio
+train_sampling_strategy:
+    value: random
+transformers_version:
+    value: 5.2.0
+use_cache:
+    value: false
+use_cpu:
+    value: false
+use_liger_kernel:
+    value: false
+use_sliding_window:
+    value: false
+vocab_size:
+    value: 151936
+warmup_ratio:
+    value: 0.1
+warmup_steps:
+    value: 0.1
+weight_decay:
+    value: 0
