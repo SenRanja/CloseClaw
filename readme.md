@@ -15,6 +15,8 @@
     - [1. data\_preprocessing](#1-data_preprocessing)
     - [2. Relabel the data using a large model](#2-relabel-the-data-using-a-large-model)
   - [training dataset \& test dataset](#training-dataset--test-dataset)
+- [models](#models)
+  - [lexicon](#lexicon)
 
 # datasets
 
@@ -32,7 +34,7 @@ It is **different** from **IMDB Large Movie Review Dataset (2011)** mentioned in
 
 We got **25,618 rows** from our spider.
 
-For the spider code, plesae refer to `data_collector`. We drived **Chromedrive** to acquire the latest movie reviews. It used the `XPATH` to select the element of the movie reviews, just like the below XPATH:
+For the spider code, plesae refer to [data_collector](https://github.com/SenRanja/CloseClaw/tree/master/data_collector). We drived **Chromedrive** to acquire the latest movie reviews. It used the `XPATH` to select the element of the movie reviews, just like the below XPATH:
 
 ```
 //*[@id="__next"]/main/div/section/div/section/div/div[1]/section[1]/article[3]/div[1]/div[1]/div[1]/span/span[1]
@@ -124,6 +126,8 @@ SQL: `select count(*) from reviews`
 
 ![](img/2026-04-18-18-56-17.png)
 
+The relative codes are in [data_preprocessing](https://github.com/SenRanja/CloseClaw/tree/master/data_preprocessing).
+
 ### 2. Relabel the data using a large model
 
 Eventually for avoidance of Satirical comments, we used GPT-4o-mini (Annotator A) and Gemini 2.5 Flash (Annotator B) to re-label the dataset.
@@ -146,6 +150,31 @@ After preprocessing, we designed the formal training dataset & test dataset.
 [datasets/val](https://github.com/SenRanja/CloseClaw/tree/master/datasets/val)
 
 (Because of some minor naming errors, the test dataset is named as `val`. Actually it is test data, which is used to evaluate our models.)
+
+# models
+
+## lexicon
+
+As our project scope mentioned, we used **VADER**:
+
+```
+Valence Aware Dictionary and sEntiment Reasoner: https://github.com/cjhutto/vaderSentiment
+it can get sentiment value from "[–4] Extremely Negative" to "[4] Extremely Positive", with allowance for "[0] Neutral. And we will make it simple as a binary labels.
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,31 +1,31 @@
 
-- [此段 To 李玮烨或其他队友 用作数据处理](#此段-to-李玮烨或其他队友-用作数据处理)
-    - [本lexicon模型不需要训练，是直接进行测评的](#本lexicon模型不需要训练是直接进行测评的)
-    - [数据本身问题](#数据本身问题)
-    - [模型本身问题](#模型本身问题)
-    - [暂时结论](#暂时结论)
+- [For Data Processing](#for-data-processing)
+    - [This lexicon model does not require training; it is directly evaluated.](#this-lexicon-model-does-not-require-training-it-is-directly-evaluated)
+    - [Problems with the data itself](#problems-with-the-data-itself)
+    - [Problems with the model itself](#problems-with-the-model-itself)
+    - [Tentative Conclusions](#tentative-conclusions)
 - [How to run](#how-to-run)
     - [pip requirements](#pip-requirements)
     - [outputs](#outputs)
-        - [source\_0结论](#source_0结论)
-        - [source\_1结论](#source_1结论)
+        - [source\_0 conclusion](#source_0-conclusion)
+        - [source\_1 conclusion](#source_1-conclusion)
 
 
-# 此段 To 李玮烨或其他队友 用作数据处理
+# For Data Processing
 
-### 本lexicon模型不需要训练，是直接进行测评的
+### This lexicon model does not require training; it is directly evaluated.
 
-VADER Sentiment，本质是一个词典（lexicon）+规则系统，已经内置了情感分数（-4 ~ +4），不需要学习数据，所以不需要 training，直接 inference + evaluation。
+VADER Sentiment is essentially a lexicon + rule system with built-in sentiment scores (-4 ~ +4). It does not require training data, so it directly uses inference + evaluation.
 
-原始数据路径：`./val/source_0/sft_val.json`和`./val/source_1/sft_val.json`
+Original data path: `./val/source_0/sft_val.json` and `./val/source_1/sft_val.json`
 
-根据output字段的最后的`\\boxed{positive}` 或者 `\\boxed{negative}` 或者`\\boxed{neutral}`为`positive = 1 neutral=0 negative= -1`
+Based on the last part of the output field `\\boxed{positive}` or  `\\boxed{negative}` or `\\boxed{neutral}`为`positive = 1 neutral=0 negative= -1`
 
-### 数据本身问题
+### Problems with the data itself
 
-类别不平衡（因为lexicon不需要训练，我没看训练+验证集数据，但此处仅看test数据的话是不平衡的）：
+The classes are imbalanced (because Lexicon doesn't require training, I haven't looked at the training and validation set data, but the imbalance is evident from the test data alone):
 
-如下仅说明test数据（即直接测评的数据）
+The following only describes the test data (i.e., the data directly evaluated).
 
 source_0
 ```
@@ -41,9 +41,9 @@ boxed{neutral} 21
 boxed{negative} 198
 ```
 
-已输出为两个csv文件，含`id,review,label,prediction`。
+The output has been converted into two CSV files, containing `id,review,label,prediction`。
 
-输出的metrics:
+metrics:
 ```
 Accuracy,
 Precision, 
@@ -53,42 +53,43 @@ Confusion matrix
 ROC curve (ROC已直接出图)
 AUC score 
 ```
-[IMDB-Spider.py](../IMDB-Spider.py)
-### 模型本身问题[IMDB-Spider.py](../IMDB-Spider.py)
-
-VADER 是 binary分类，倾向设计初衷是： 正 vs 负，不是：正 / 中 / 负
-
-neutral ≈ 接近 0，但是很多句子：
-稍微偏正 → 就被判 positive
-稍微偏负 → 就被判 negative
-
-### 暂时结论
-
-对 positive（正面） 非常强
-对 neutral（中性）几乎失效
-对 negative（负面） 中等
-
-Positive（表现很好）
-precision ≈ 0.77
-recall ≈ 0.88
-f1 ≈ 0.82
-
-Negative（中等）
-f1 ≈ 0.57 / 0.61
-能识别，但不稳定。从 confusion matrix 看：[-1] → 被预测成 positive 很多
-
-Neutral（灾难级）
-f1 ≈ 0.04 / 0.06
-recall ≈ 0.02 ~ 0.04
-基本不会识别 neutral
 
 
-AUC ≈ 0.6635
-说明：有一定区分能力但不强
+### Problems with the model itself
 
-----
+VADER is a binary classification system, designed primarily for positive vs. negative, not for positive / neutral / negative.
 
-如何运行、结果内容，详见如下
+Neutral ≈ close to 0, but in many sentences:
+Slightly positive → is judged as positive
+Slightly negative → is judged as negative
+
+### Tentative Conclusions
+
+Very strong for positive
+Almost ineffective for neutral
+Moderate for negative
+
+Positive (Performs very well)
+
+Precision ≈ 0.77
+
+Recall ≈ 0.88
+
+F1 ≈ 0.82
+
+Negative (Moderate)
+
+F1 ≈ 0.57 / 0.61 Can identify, but unstable. From the confusion matrix: [-1] → Many are predicted as positive
+
+Neutral (Catastrophic)
+
+F1 ≈ 0.04 / 0.06
+
+Recall ≈ 0.02 ~ 0.04 Basically cannot identify neutral
+
+AUC ≈ 0.6635 Note: Has some distinguishing ability but not strong.
+
+
 
 # How to run
 
@@ -98,7 +99,7 @@ AUC ≈ 0.6635
 
 ### outputs
 
-##### source_0结论
+##### source_0 conclusion
 
 ```
 Saved results to result_source_0.csv
@@ -132,7 +133,7 @@ ROC curve saved as roc_curve.png
 
 ![](img/2026-04-11-18-46-35.png)
 
-##### source_1结论
+##### source_1 conclusion
 
 ```
 Saved results to result_source_1.csv
