@@ -17,6 +17,11 @@
   - [training dataset \& test dataset](#training-dataset--test-dataset)
 - [models](#models)
   - [lexicon](#lexicon)
+  - [SVM](#svm)
+  - [BERT](#bert)
+  - [todo WKJ](#todo-wkj)
+- [Experiments \& Evaluation](#experiments--evaluation)
+- [Demo](#demo)
 
 # datasets
 
@@ -162,22 +167,32 @@ Valence Aware Dictionary and sEntiment Reasoner: https://github.com/cjhutto/vade
 it can get sentiment value from "[–4] Extremely Negative" to "[4] Extremely Positive", with allowance for "[0] Neutral. And we will make it simple as a binary labels.
 ```
 
+For more description about `how to run`, and the `consequence with diagrams` of it, and the code of lexicon, please refer to the link: [lexicon/readme.md](https://github.com/SenRanja/CloseClaw/blob/master/lexicon/readme.md)
+
+The code and output and results after code execution are in [lexicon code & output](https://github.com/SenRanja/CloseClaw/tree/master/lexicon)
+
+## SVM
+
+For more description about SVM (our baseline model) & code, please refer to the link: [SVM/readme.md](https://github.com/SenRanja/CloseClaw/blob/master/svm%20%2B%20bert/svm%20%2B%20bert.md) and [SVM code & output](https://github.com/SenRanja/CloseClaw/tree/master/svm%20%2B%20bert/svm%20%2B%20bert/svm).
 
 
+## BERT
 
+For more description about BERT & code, please refer to the link: [BERT/readme.md](https://github.com/SenRanja/CloseClaw/blob/master/svm%20%2B%20bert/svm%20%2B%20bert.md) and [BERT code & output](https://github.com/SenRanja/CloseClaw/tree/master/svm%20%2B%20bert/svm%20%2B%20bert/bert).
 
+## todo WKJ
 
+# Experiments & Evaluation
 
+The final data integration, chart generation, and processing of the results after running **all the above models**, please refer to the executed Jupyter Notebook: [Experiments&Evaluation.ipynb](https://github.com/SenRanja/CloseClaw/blob/master/Experiments%26Evaluation/Experiments%26Evaluation.ipynb).
 
+Besides, all the tables & figures are in [tables & figures](https://github.com/SenRanja/CloseClaw/tree/master/Experiments%26Evaluation/Tables%26Figures).
 
+![](img/2026-04-18-19-28-30.png)
 
+# Demo
 
-
-
-
-
-
-
+[Demo description](https://github.com/SenRanja/CloseClaw/blob/master/demo/Browser_Based_Sentiment_Visualization/WHT_7_system_interface.md)
 
 
 
