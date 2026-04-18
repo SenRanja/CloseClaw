@@ -5,11 +5,15 @@
 - [data analysis](#data-analysis)
   - [Length problem](#length-problem)
   - [Non-ASCII characters](#non-ascii-characters)
+  - [Satirical comments](#satirical-comments)
   - [The centrists rated 5 or 6](#the-centrists-rated-5-or-6)
 - [preprocessing](#preprocessing)
-  - [classification problem for the labels](#classification-problem-for-the-labels)
-  - [the source ID to distinguish dataset sources](#the-source-id-to-distinguish-dataset-sources)
+  - [requirement for the processed dataset](#requirement-for-the-processed-dataset)
+    - [definition of classification problem for the labels](#definition-of-classification-problem-for-the-labels)
+    - [definition of the source ID to distinguish dataset sources](#definition-of-the-source-id-to-distinguish-dataset-sources)
   - [code](#code)
+    - [1. Relabel the data using a large model](#1-relabel-the-data-using-a-large-model)
+    - [2.](#2)
 
 # datasets
 
@@ -58,6 +62,12 @@ Sööt
 años
 ```
 
+## Satirical comments
+
+There are many sarcastic reviews in the datasets, just like the review look so good `Yes, it cannot be better any more`, literally we'd regard it as an optimistic review, but the reviewer gave **1** marks as the lowest mark.
+
+In the future, for avoidance of large model to be confused, we will re-annotate the labels by the other three large models.
+
 ## The centrists rated 5 or 6
 
 IMDB's rates is in [1, 10]. We used SQL to check the centrists of [4, 7]. Because they are not clear enough to show if they like or dislike the movie, later we'd consider use them. Because large models need to learn some necessary centrists reviews as the training data.
@@ -78,7 +88,9 @@ ORDER BY rating;
 
 # preprocessing
 
-## classification problem for the labels
+## requirement for the processed dataset
+
+### definition of classification problem for the labels
 
 For our preprocessed datasets, we defined the classification labels: 
 
@@ -86,7 +98,7 @@ For our preprocessed datasets, we defined the classification labels:
 - **1** represents **positive**
 - **-1** represents **negative**
 
-## the source ID to distinguish dataset sources
+### definition of the source ID to distinguish dataset sources
 
 For future to evaluate the datasets' quality (different from large models), we distinguish two types of the dataset sources: 
 
@@ -95,9 +107,17 @@ For future to evaluate the datasets' quality (different from large models), we d
 
 ## code
 
+### 1. Relabel the data using a large model
+
+Eventually for avoidance of Satirical comments, we used GPT-4o-mini (Annotator A) and Gemini 2.5 Flash (Annotator B) to re-label the dataset.
+
+
+
+### 2. 
+
 data_preprocessing
 
-
+[datasets/cleaned_reviews_LiYingxin.db](https://github.com/SenRanja/CloseClaw/blob/master/datasets/cleaned_reviews_LiYingxin.db)
 
 
 
