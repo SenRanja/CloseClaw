@@ -17,10 +17,10 @@
     - [2. Relabel the data using a large model](#2-relabel-the-data-using-a-large-model)
   - [training dataset \& test dataset](#training-dataset--test-dataset)
 - [models](#models)
-  - [lexicon](#lexicon)
-  - [SVM](#svm)
+  - [VADER (lexicon)](#vader-lexicon)
+  - [SVM (baseline model)](#svm-baseline-model)
   - [BERT](#bert)
-  - [todo WKJ](#todo-wkj)
+  - [Qwen3-0.6B, Qwen3-1.7B, Qwen3-4B](#qwen3-06b-qwen3-17b-qwen3-4b)
 - [Experiments \& Evaluation](#experiments--evaluation)
 - [Demo](#demo)
 
@@ -165,7 +165,7 @@ After preprocessing, we designed the formal training dataset & test dataset.
 
 # models
 
-## lexicon
+## VADER (lexicon)
 
 As our project scope mentioned, we used **VADER**:
 
@@ -178,7 +178,7 @@ For more description about `how to run`, and the `consequence with diagrams` of 
 
 The code and output and results after code execution are in [lexicon code & output](https://github.com/SenRanja/CloseClaw/tree/master/lexicon)
 
-## SVM
+## SVM (baseline model)
 
 For more description about SVM (our baseline model) & code, please refer to the link: [SVM/readme.md](https://github.com/SenRanja/CloseClaw/blob/master/svm%20%2B%20bert/svm%20%2B%20bert.md) and [SVM code & output](https://github.com/SenRanja/CloseClaw/tree/master/svm%20%2B%20bert/svm%20%2B%20bert/svm).
 
@@ -187,7 +187,11 @@ For more description about SVM (our baseline model) & code, please refer to the 
 
 For more description about BERT & code, please refer to the link: [BERT/readme.md](https://github.com/SenRanja/CloseClaw/blob/master/svm%20%2B%20bert/svm%20%2B%20bert.md) and [BERT code & output](https://github.com/SenRanja/CloseClaw/tree/master/svm%20%2B%20bert/svm%20%2B%20bert/bert).
 
-## todo WKJ
+## Qwen3-0.6B, Qwen3-1.7B, Qwen3-4B
+
+We ran three large models of **Qwen3-0.6B**, **Qwen3-1.7B**, and **Qwen3-4B**.
+
+
 
 # Experiments & Evaluation
 
