@@ -39,7 +39,7 @@ It is **different** from **IMDB Large Movie Review Dataset (2011)** mentioned in
 
 We got **25,618 rows** from our spider.
 
-For the spider code, plesae refer to [data_collector](https://github.com/SenRanja/CloseClaw/tree/master/data_collector). We drived **Chromedrive** to acquire the latest movie reviews. It used the `XPATH` to select the element of the movie reviews, just like the below XPATH:
+For the spider code, plesae refer to the directory of [data_collector](https://github.com/SenRanja/CloseClaw/tree/master/data_collector). We drived **Chromedrive** to acquire the latest movie reviews. It used the `XPATH` to select the element of the movie reviews, just like the below XPATH:
 
 ```
 //*[@id="__next"]/main/div/section/div/section/div/div[1]/section[1]/article[3]/div[1]/div[1]/div[1]/span/span[1]
@@ -119,7 +119,7 @@ For future to evaluate the datasets' quality (different from large models), we d
 
 ### 1. data_preprocessing
 
-For the total datasets of ours, please refer to the **SQLite DB** as below:
+For the total datasets of ours, please refer to the **SQLite DB** file as below:
 
 [datasets/cleaned_reviews.db](https://github.com/SenRanja/CloseClaw/blob/master/datasets/cleaned_reviews.db)
 
@@ -137,7 +137,7 @@ The relative codes are in [data_preprocessing](https://github.com/SenRanja/Close
 
 Eventually for avoidance of Satirical comments, we used GPT-4o-mini (Annotator A) and Gemini 2.5 Flash (Annotator B) to re-label the dataset.
 
-For this part of description, please refer to [3_3_Annotation%20Process.md](https://github.com/SenRanja/CloseClaw/blob/master/Automatic_annotation/3_3_Annotation%20Process.md), it will introduce how we re-labelled the datasets.
+For this part of description, please refer to the markdown of [3_3_Annotation%20Process.md](https://github.com/SenRanja/CloseClaw/blob/master/Automatic_annotation/3_3_Annotation%20Process.md), it will introduce how we re-labelled the datasets.
 
 For the code, refer to [Automatic_annotation/auto_label](https://github.com/SenRanja/CloseClaw/blob/master/Automatic_annotation/auto_label.py).
 
@@ -167,7 +167,7 @@ Valence Aware Dictionary and sEntiment Reasoner: https://github.com/cjhutto/vade
 it can get sentiment value from "[–4] Extremely Negative" to "[4] Extremely Positive", with allowance for "[0] Neutral. And we will make it simple as a binary labels.
 ```
 
-For more description about `how to run`, and the `consequence with diagrams` of it, and the code of lexicon, please refer to the link: [lexicon/readme.md](https://github.com/SenRanja/CloseClaw/blob/master/lexicon/readme.md)
+For more description about `how to run`, and the `consequence with diagrams` of it, and the code of lexicon, please refer to the `readme.md`: [lexicon/readme.md](https://github.com/SenRanja/CloseClaw/blob/master/lexicon/readme.md)
 
 The code and output and results after code execution are in [lexicon code & output](https://github.com/SenRanja/CloseClaw/tree/master/lexicon)
 
@@ -192,11 +192,11 @@ Besides, all the tables & figures are in [tables & figures](https://github.com/S
 
 # Demo
 
+For our Demo which shows the work of our models, refer to the markdown of [Demo description](https://github.com/SenRanja/CloseClaw/blob/master/demo/Browser_Based_Sentiment_Visualization/7_system_interface.md), where the code is also in that directory.
 
+It will generate the website labels in websites of `IMDB` and `Rotten Tomatoes`.
 
-[Demo description](https://github.com/SenRanja/CloseClaw/blob/master/demo/Browser_Based_Sentiment_Visualization/WHT_7_system_interface.md)
+![](img/2026-04-18-19-36-01.png)
 
-
-
-
+![](img/2026-04-18-19-36-19.png)
 
