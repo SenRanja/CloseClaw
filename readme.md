@@ -189,9 +189,19 @@ For more description about BERT & code, please refer to the link: [BERT/readme.m
 
 ## Qwen3-0.6B, Qwen3-1.7B, Qwen3-4B
 
-We ran three large models of **Qwen3-0.6B**, **Qwen3-1.7B**, and **Qwen3-4B**.
+We've run three large models of **Qwen3-0.6B**, **Qwen3-1.7B**, and **Qwen3-4B**. For the descriptions of them, refer to the directory: [Qwen](https://github.com/SenRanja/CloseClaw/tree/master/three_large_models_qwen), it is a big pipeline to run Qwen to generate the outputs by one teammate specially, hence its code style is different from the others above.
 
+Please read the instructions if you want to know how it ran because of its complexity. There are some explanations for the code hierarchy:
 
+For how to run the pipelines:
+
+[QWEN_SFT_PIPELINE.md](https://github.com/SenRanja/CloseClaw/blob/master/three_large_models_qwen/QWEN_SFT_PIPELINE.md), 
+
+[agent_pipeline_learning_router.md](https://github.com/SenRanja/CloseClaw/blob/master/three_large_models_qwen/COMP6713_agent_pipeline_learning_router.md)
+
+[industrial_sentiment_pipeline_3branch.md](https://github.com/SenRanja/CloseClaw/blob/master/three_large_models_qwen/COMP6713_industrial_sentiment_pipeline_3branch.md)
+
+[modeling_pipeline_bert_qwen_dpo.md](https://github.com/SenRanja/CloseClaw/blob/master/three_large_models_qwen/COMP6713_modeling_pipeline_bert_qwen_dpo.md)
 
 # Experiments & Evaluation
 
