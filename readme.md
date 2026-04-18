@@ -1,4 +1,5 @@
 
+- [Reading Instructions](#reading-instructions)
 - [datasets](#datasets)
   - [existing open-source data datasets](#existing-open-source-data-datasets)
   - [self-built spider dataset](#self-built-spider-dataset)
@@ -22,6 +23,12 @@
   - [todo WKJ](#todo-wkj)
 - [Experiments \& Evaluation](#experiments--evaluation)
 - [Demo](#demo)
+
+# Reading Instructions
+
+Due to the large scale of this team project involving multiple collaborators, and also for readability reasons, the `code`, `how-to-run` `instructions`, and `explanations` **cannot be presented in a single Markdown document**. 
+
+Readers are advised to **refer to the references** provided in this article. These references are specifically designed as **navigation** elements **within the project** for convenience.
 
 # datasets
 
