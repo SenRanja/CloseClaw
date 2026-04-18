@@ -184,13 +184,15 @@ For more description about BERT & code, please refer to the link: [BERT/readme.m
 
 # Experiments & Evaluation
 
-The final data integration, chart generation, and processing of the results after running **all the above models**, please refer to the executed Jupyter Notebook: [Experiments&Evaluation.ipynb](https://github.com/SenRanja/CloseClaw/blob/master/Experiments%26Evaluation/Experiments%26Evaluation.ipynb).
+The final data integration, chart generation, and processing of the results after running **all the above models**, please refer to the executed Jupyter Notebook: [Experiments&Evaluation.ipynb](https://github.com/SenRanja/CloseClaw/blob/master/Experiments%26Evaluation/Experiments%26Evaluation.ipynb), which contains all the outputed results of the total evaluations.
 
-Besides, all the tables & figures are in [tables & figures](https://github.com/SenRanja/CloseClaw/tree/master/Experiments%26Evaluation/Tables%26Figures).
+Besides, all the tables & figures are in [tables & figures](https://github.com/SenRanja/CloseClaw/tree/master/Experiments%26Evaluation/Tables%26Figures), just like that
 
 ![](img/2026-04-18-19-28-30.png)
 
 # Demo
+
+
 
 [Demo description](https://github.com/SenRanja/CloseClaw/blob/master/demo/Browser_Based_Sentiment_Visualization/WHT_7_system_interface.md)
 
