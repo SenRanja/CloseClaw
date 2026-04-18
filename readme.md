@@ -12,8 +12,9 @@
     - [definition of classification problem for the labels](#definition-of-classification-problem-for-the-labels)
     - [definition of the source ID to distinguish dataset sources](#definition-of-the-source-id-to-distinguish-dataset-sources)
   - [code](#code)
-    - [1. Relabel the data using a large model](#1-relabel-the-data-using-a-large-model)
-    - [2.](#2)
+    - [1. data\_preprocessing](#1-data_preprocessing)
+    - [2. Relabel the data using a large model](#2-relabel-the-data-using-a-large-model)
+  - [training dataset \& test dataset](#training-dataset--test-dataset)
 
 # datasets
 
@@ -37,6 +38,8 @@ For the spider code, plesae refer to `data_collector`. We drived **Chromedrive**
 //*[@id="__next"]/main/div/section/div/section/div/div[1]/section[1]/article[3]/div[1]/div[1]/div[1]/span/span[1]
 //*[@id="__next"]/main/div/section/div/section/div/div[1]/section[1]/article[3]/div[1]/div[1]/div[3]/div/div/div
 ```
+
+For the data
 
 # data analysis
 
@@ -107,17 +110,44 @@ For future to evaluate the datasets' quality (different from large models), we d
 
 ## code
 
-### 1. Relabel the data using a large model
+### 1. data_preprocessing
+
+For the total datasets of ours, please refer to the **SQLite DB** as below:
+
+[datasets/cleaned_reviews_LiYingxin.db](https://github.com/SenRanja/CloseClaw/blob/master/datasets/cleaned_reviews_LiYingxin.db)
+
+It is a SQLite DB, you can use **DBeaver** to connect the DB file easily. It contains simply filtered `62,136` original items.
+
+SQL: `select count(*) from reviews`
+
+![](img/2026-04-18-18-56-47.png)
+
+![](img/2026-04-18-18-56-17.png)
+
+### 2. Relabel the data using a large model
 
 Eventually for avoidance of Satirical comments, we used GPT-4o-mini (Annotator A) and Gemini 2.5 Flash (Annotator B) to re-label the dataset.
 
+For this part of description, please refer to [3_3_Annotation%20Process.md](https://github.com/SenRanja/CloseClaw/blob/master/Automatic_annotation/3_3_Annotation%20Process.md), it will introduce how we re-labelled the datasets.
+
+For the code, refer to [Automatic_annotation/auto_label](https://github.com/SenRanja/CloseClaw/blob/master/Automatic_annotation/auto_label.py).
+
+## training dataset & test dataset
+
+After preprocessing, we designed the formal training dataset & test dataset.
+
+**train & validate dataset**
+
+[datasets/sft_train.json](https://github.com/SenRanja/CloseClaw/blob/master/datasets/sft_train.json)
 
 
-### 2. 
+**test dataset**
 
-data_preprocessing
+[datasets/val](https://github.com/SenRanja/CloseClaw/tree/master/datasets/val)
 
-[datasets/cleaned_reviews_LiYingxin.db](https://github.com/SenRanja/CloseClaw/blob/master/datasets/cleaned_reviews_LiYingxin.db)
+(Because of some minor naming errors, the test dataset is named as `val`. Actually it is test data, which is used to evaluate our models.)
+
+
 
 
 
