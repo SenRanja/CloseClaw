@@ -195,7 +195,7 @@ Please read the instructions if you want to know how it ran because of its compl
 
 For how to run the pipelines:
 
-[QWEN_SFT_PIPELINE.md](https://github.com/SenRanja/CloseClaw/blob/master/three_large_models_qwen/QWEN_SFT_PIPELINE.md), 
+[QWEN_SFT_PIPELINE.md](https://github.com/SenRanja/CloseClaw/blob/master/three_large_models_qwen/QWEN_SFT_PIPELINE.md)
 
 [agent_pipeline_learning_router.md](https://github.com/SenRanja/CloseClaw/blob/master/three_large_models_qwen/COMP6713_agent_pipeline_learning_router.md)
 

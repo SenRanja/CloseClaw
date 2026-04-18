@@ -1,8 +1,8 @@
 # Qwen3 SFT Training Pipeline and Code Architecture
 
-本文档总结当前代码中 Qwen3-0.6B、Qwen3-1.7B、Qwen3-4B 的 SFT 训练流程、数据流、代码架构和产物位置。当前项目的 Qwen 训练是一个基于 LLaMAFactory 的 LoRA supervised fine-tuning pipeline，任务形式是生成式三分类情感分析：模型读入电影评论，生成简短解释，并在最后输出 `\boxed{positive}`、`\boxed{negative}` 或 `\boxed{neutral}`。
+This document summarizes the SFT training process, data flow, code architecture, and output locations for Qwen3-0.6B, Qwen3-1.7B, and Qwen3-4B in the current code. The Qwen training in this project is a LoRA-supervised fine-tuning pipeline based on LLaMAFactory. The task is generative three-class sentiment analysis: the model reads movie reviews, generates brief explanations, and finally outputs `\boxed{positive}`, `\boxed{negative}`, or `\boxed{neutral}`.
 
-## 1. 总体 Pipeline
+## 1. total Pipeline
 
 ```text
 annotated_reviews*.csv
@@ -33,54 +33,55 @@ before_sft predictions         output/qwen3-*/lora/sft
                               after_sft predictions
 ```
 
-对应的一键入口是：
+The corresponding one-click entry is:
 
 ```bash
 bash run_sft.sh
 ```
 
-`run_sft.sh` 做四件事：
+`run_sft.sh` performs four tasks:
 
-1. 调用 `scripts/prepare_sft_data.py` 生成 SFT 数据。
-2. 调用 `scripts/evaluate_sft_val_predictions.py` 对 base model 做 before-SFT 验证集推理。
-3. 调用 `llamafactory-cli train qwen_sft.yaml` 进行 LoRA SFT。
-4. 再次调用 `scripts/evaluate_sft_val_predictions.py`，加载 LoRA adapter 后做 after-SFT 验证集推理。
+1. It calls `scripts/prepare_sft_data.py` to generate SFT data.
 
-## 2. 代码目录与职责
+2. It calls `scripts/evaluate_sft_val_predictions.py` to perform before-SFT validation set inference on the base model.
+
+3. It calls `llamafactory-cli train qwen_sft.yaml` to perform LoRA SFT.
+
+4. It calls `scripts/evaluate_sft_val_predictions.py` again, loads the LoRA adapter, and performs after-SFT validation set inference.
+
+## 2. Code directory and responsibilities
 
 | Path | Role |
 | --- | --- |
-| `run_sft.sh` | Qwen SFT 主入口脚本，串联数据准备、训练前评估、LLaMAFactory 训练和训练后评估。 |
-| `scripts/prepare_sft_data.py` | 读取 `annotated_reviews*.csv`，构造 Alpaca-style SFT JSON 数据。 |
-| `configs/dataset_info.json` | 告诉 LLaMAFactory `sentiment_sft_train` 和 `sentiment_sft_test` 分别对应哪些 JSON 文件。 |
-| `configs/qwen_sft.yaml` | 当前根目录的 Qwen SFT 配置文件。 |
-| `6713group—final/configs/_qwen_sft_run.yaml` | final 目录中保存的 Qwen3-0.6B SFT 配置。 |
-| `6713group—final/configs/qwen_sft.yaml` | final 目录中保存的 Qwen3-4B SFT 配置。 |
-| `scripts/evaluate_sft_val_predictions.py` | 对 source-specific validation files 做生成式推理，并保存 before/after CSV。 |
-| `LlamaFactory/src/llamafactory/train/sft/workflow.py` | LLaMAFactory SFT 训练主流程：加载 tokenizer、dataset、model、data collator、trainer。 |
-| `LlamaFactory/src/llamafactory/train/sft/trainer.py` | LLaMAFactory 自定义 `CustomSeq2SeqTrainer`，在没有启用特殊 loss 时走默认 causal LM loss。 |
-| `data/sft/` | SFT 训练、内部评估、source-specific validation 数据。 |
-| `output/qwen3-*/lora/sft` / `6713group—final/output/qwen3-*/lora/sft` | LoRA adapter、trainer state、loss 曲线和训练结果。 |
-| `eval_predictions*/` | Qwen before/after SFT 的验证集预测 CSV。 |
+| `run_sft.sh` | The main entry script for Qwen SFT, connecting data preparation, pre-training evaluation, LLaMAFactory training, and post-training evaluation. |
+| `scripts/prepare_sft_data.py` | Reads `annotated_reviews*.csv` and constructs Alpaca-style SFT JSON data. |
+| `configs/dataset_info.json` | Tells LLaMAFactory which JSON files `sentiment_sft_train` and `sentiment_sft_test` correspond to. |
+| `configs/qwen_sft.yaml` | The Qwen SFT configuration file in the current root directory. |
+| `6713group—final/configs/_qwen_sft_run.yaml` | The Qwen3-0.6B SFT configuration saved in the final directory. | | `6713group—final/configs/qwen_sft.yaml` | The Qwen3-4B SFT configuration saved in the final directory. |
+| `scripts/evaluate_sft_val_predictions.py` | Performs generative inference on source-specific validation files and saves before/after CSVs. |
+| `LlamaFactory/src/llamafactory/train/sft/workflow.py` | The main workflow for LLaMAFactory SFT training: loading the tokenizer, dataset, model, data collator, and trainer. |
+| `LlamaFactory/src/llamafactory/train/sft/trainer.py` | LLaMAFactory's custom `CustomSeq2SeqTrainer`, which uses the default causal LM loss when no special loss is enabled. |
+| `data/sft/` | SFT training, internal evaluation, and source-specific validation data. | | `output/qwen3-*/lora/sft` / `6713group—final/output/qwen3-*/lora/sft` | LoRA adapter, trainer state, loss curve, and training results. | | `eval_predictions*/` | CSV of Qwen's validation set predictions before and after SFT.
 
-## 3. 数据准备 Pipeline
+## 3. data preparation Pipeline
 
-数据准备入口：
+Data preparation entry point:
 
 ```bash
 python scripts/prepare_sft_data.py
 ```
 
-该脚本读取项目根目录下所有：
+This script reads all files in the project's root directory:
 
 ```text
 annotated_reviews*.csv
 ```
 
-主要处理逻辑：
+Main processing logic:
 
-1. 读取 `review_text`、`sentiment`、`source`、`annotator_a`、`annotator_b`。
-2. 将原始标签映射成文本标签：
+1. Read `review_text`, `sentiment`, `source`, `annotator_a`, and `annotator_b`.
+
+2. Map the original tags to text tags:
 
 ```python
 SENTIMENT_MAP = {
@@ -90,17 +91,23 @@ SENTIMENT_MAP = {
 }
 ```
 
-3. 如果两个 annotator 的 sentiment 不一致，则从 SFT 数据中排除。这些 disagreement samples 更适合后续 DPO / preference-style 数据构造。
-4. 将每条样本转成 Alpaca-style SFT 格式。
-5. 对每个 source 分层抽样：
-   - validation: 每个 source 500 条
-   - test: 每个 source 500 条
-   - train: 剩余样本
-6. 对 train set 做 positive / negative downsampling，使正负样本平衡，neutral 保留。
+3. If two annotators have inconsistent sentiments, exclude them from the SFT data. These disagreement samples are more suitable for subsequent DPO/preference-style data construction.
 
-## 4. SFT 数据格式
+4. Convert each sample to Alpaca-style SFT format.
 
-每条样本最终是四字段 JSON：
+5. Stratify sampling for each source:
+
+- validation: 500 samples per source
+
+- test: 500 samples per source
+
+- train: Remaining samples
+
+6. Perform positive/negative downsampling on the train set to balance positive and negative samples, preserving neutral samples.
+
+## 4. SFT Data Format
+
+Each sample ultimately consists of four fields in JSON format:
 
 ```json
 {
@@ -111,25 +118,26 @@ SENTIMENT_MAP = {
 }
 ```
 
-模型训练目标不是只输出一个 label，而是生成：
+The model training objective is not simply to output a label, but to generate:
 
 ```text
 reasoning / explanation
 
 \boxed{label}
 ```
-
-因此 Qwen SFT 本质是：
+Therefore, Qwen SFT is essentially:
 
 ```text
 Chat-style instruction
-        -> causal language modeling SFT
-        -> explanation + boxed sentiment label
+
+-> causal language modeling SFT
+
+-> explanation + boxed sentiment label
 ```
 
-## 5. 数据文件与数量
+## 5. Data Files and Quantity
 
-当前 `data/sft/` 中的数据统计如下：
+The current data statistics in `data/sft/` are as follows:
 
 | File | Total | Positive | Negative | Neutral | Purpose |
 | --- | ---: | ---: | ---: | ---: | --- |
@@ -138,7 +146,7 @@ Chat-style instruction
 | `data/sft/val/source_0/sft_val.json` | 500 | 327 | 133 | 40 | source 0 before/after evaluation |
 | `data/sft/val/source_1/sft_val.json` | 500 | 281 | 198 | 21 | source 1 before/after evaluation |
 
-`configs/dataset_info.json` 将 LLaMAFactory dataset name 映射到这些文件：
+The `configs/dataset_info.json` file maps LLaMAFactory dataset names to these files:
 
 ```json
 {
@@ -151,7 +159,7 @@ Chat-style instruction
 }
 ```
 
-训练配置中使用：
+Used in training configuration:
 
 ```yaml
 dataset_dir: ../configs
@@ -159,9 +167,9 @@ dataset: sentiment_sft_train
 eval_dataset: sentiment_sft_test
 ```
 
-## 6. 三个 Qwen 尺度的 SFT 配置
+## 6. SFT Configuration for Three Qwen Scales
 
-当前根目录 `configs/qwen_sft.yaml` 是一个可运行的 Qwen3-4B-Instruct 配置，LoRA rank 为 8：
+The current root directory `configs/qwen_sft.yaml` is a runnable Qwen3-4B-Instruct configuration with a LoRA rank of 8:
 
 ```yaml
 model_name_or_path: Qwen/Qwen3-4B-Instruct-2507
@@ -170,7 +178,7 @@ lora_rank: 8
 output_dir: ../output/qwen3-4b/lora/sft
 ```
 
-final 实验中用于报告结果的多尺度 Qwen SFT 主要保存在 `6713group—final/` 下。final 配置使用 LoRA rank 32。为了报告和实验结果对齐，建议在最终提交代码时保留 final 配置，或者将根目录配置同步为最终配置。
+The multi-scale Qwen SFT used for reporting results in the final experiments is primarily stored under `6713group-final/`. The final configuration uses LoRA rank 32. To ensure alignment between reporting and experimental results, it is recommended to retain the final configuration when finally committing the code, or to synchronize the root directory configuration with the final configuration.
 
 | Model | Base model path recorded in artifacts | Config / Evidence | Output adapter dir | LoRA rank | Notes |
 | --- | --- | --- | --- | ---: | --- |
@@ -199,9 +207,9 @@ Common SFT hyperparameters across the three final Qwen runs:
 | Optimizer | AdamW fused, recorded in generated model card |
 | Seed | 42, recorded in generated model card |
 
-## 7. LLaMAFactory 内部训练流程
+## 7. LLaMAFactory Internal training process
 
-`run_sft.sh` 中真正训练的命令是：
+`run_sft.sh` The actual training command is:
 
 ```bash
 cd configs
