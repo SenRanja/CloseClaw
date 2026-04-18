@@ -114,7 +114,7 @@ For future to evaluate the datasets' quality (different from large models), we d
 
 For the total datasets of ours, please refer to the **SQLite DB** as below:
 
-[datasets/cleaned_reviews_LiYingxin.db](https://github.com/SenRanja/CloseClaw/blob/master/datasets/cleaned_reviews_LiYingxin.db)
+[datasets/cleaned_reviews.db](https://github.com/SenRanja/CloseClaw/blob/master/datasets/cleaned_reviews.db)
 
 It is a SQLite DB, you can use **DBeaver** to connect the DB file easily. It contains simply filtered `62,136` original items.
 
