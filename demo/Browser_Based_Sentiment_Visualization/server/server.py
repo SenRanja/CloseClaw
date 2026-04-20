@@ -12,8 +12,8 @@ import gc
 import asyncio
 from concurrent.futures import ThreadPoolExecutor
 
-os.environ.setdefault("HF_HOME", "E:/hf_cache")
-os.environ.setdefault("TRANSFORMERS_CACHE", "E:/hf_cache/hub")
+os.environ.setdefault("HF_HOME", "/tmp/hf_cache")
+os.environ.setdefault("TRANSFORMERS_CACHE", "/tmp/hf_cache/hub")
 
 import torch
 from fastapi import FastAPI, HTTPException
@@ -229,4 +229,4 @@ def analyze(req: ReviewRequest):
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="127.0.0.1", port=8765)
+    uvicorn.run(app, host="0.0.0.0", port=7860)
