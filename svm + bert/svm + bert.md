@@ -4,38 +4,26 @@ To establish a simple, interpretable and easily reproducible reference benchmark
 
 ### Feature extraction: TF-IDF
 
-TF-IDF (Term frequency-Inverse Document Frequency) is a classic text representation method that can construct a high-dimensional sparse vector representation for each comment based on the occurrence Frequency of the term in the current document and its rarity in the entire corpus. In this experiment, ngram_range=(1,2) or ngram_range=(1,3) is used to capture the features of unigram, bigram and trigram, with the maximum number of features set at 50,000. And enable sublinear_tf=True to alleviate the dominant effect of high-frequency words.
+TF-IDF (Term frequency-Inverse Document Frequency) is a classic text representation method that can construct a high-dimensional sparse vector representation for each comment based on the occurrence Frequency of the term in the current document and its rarity in the entire corpus. In this experiment, the baseline uses the default TF-IDF setting with `ngram_range=(1,2)` to capture unigram and bigram features, with the maximum number of features set to 50,000 and `sublinear_tf=True` enabled to alleviate the dominant effect of high-frequency words.
 
-This setting can capture local word order information to a certain extent. For example, the model can not only recognize individual emotional words, such as "great" or "awful", but also phrases with emotional tendencies, such as "not good" or "well worth". However, TF-IDF still belongs to the sparse representation method based on term statistics and is difficult to model long-distance dependencies, context relationships and complex semantics.
+This setting can capture limited local word-order information through unigram and bigram features. For example, the model can not only recognize individual emotional words, such as "great" or "awful", but also phrases with emotional tendencies, such as "not good" or "well worth". However, TF-IDF still belongs to the sparse representation method based on term statistics and is difficult to model long-distance dependencies, context relationships and complex semantics.
 
 ### Classifier: LinearSVC
 
 After obtaining the TF-IDF vector, this project uses LinearSVC for the three-classification task (positive/negative/neutral). Linear support vector machines achieve classification by learning the maximum margin decision boundary in a high-dimensional feature space, and are particularly suitable for high-dimensional sparse data. Therefore, they are often used as strong baseline models in text classification. For multi-classification tasks, LinearSVC adopts the one-vs-rest strategy to learn the decision functions of each category respectively and outputs the final prediction label based on the highest score.
 
-### Hyperparameter search
+### Baseline setting
 
-To find the best baseline configuration, this experiment conducts a grid search on the following hyperparameters:
-
-- Regularization parameter C ∈ {0.1, 0.5, 1.0, 2.0, 5.0}
-- n-gram range: (1,2) and (1,3)
-- Category weights: None and balanced
-
-A total of 20 candidate configurations were obtained, and Macro-F1 on the validation set was used as the model selection criterion. The final optimal configuration is:
-
-- C = 1.0
-- ngram_range = (1,3)
-- class_weight = balanced
-
-Among them, class_weight='balanced' has the most significant effect on performance improvement. This is mainly due to the obvious category imbalance in the training data: there are 7,145 positive and negative entries each, while there are only 1,128 neutral entries. Category weighting helps to enhance the model's focus on the minority class neutral, thereby improving its recall rate.
+Unlike an extensively tuned traditional model, the final baseline in this project uses a fixed default TF-IDF configuration with `ngram_range=(1,2)`. This keeps the baseline simple, interpretable, and easily reproducible, while allowing the comparison with BERT to focus more clearly on the difference between sparse lexical features and contextualized representations.
 
 ### Baseline results
 
-The performance of the optimal TF-IDF + LinearSVC model on the two test sets is as follows:
+The performance of the TF-IDF + LinearSVC baseline on the two test sets is as follows:
 
 | Test Set | Accuracy | Macro-F1 |
 | -------- | -------- | -------- |
-| source_0 | 0.852    | 0.652    |
-| source_1 | 0.888    | 0.675    |
+| source_0 | 0.8600   | 0.6422   |
+| source_1 | 0.8860   | 0.6036   |
 
 It can be seen from the results that this baseline model has a strong recognition ability for the two types of explicit emotional comments, positive and negative, but the recognition effect for the neutral category is significantly insufficient. The fundamental reason lies in the fact that neutral comments often contain transitional structures, have both advantages and disadvantages, or have strong semantic ambiguity, and sparse features based on word frequency statistics are difficult to effectively model such complex contexts. This result provides motivation for the subsequent introduction of pre-trained language models.
 
@@ -82,6 +70,8 @@ Using BertForSequenceClassification model training, loss function (CrossEntropyL
 
 The batch size for model training is 16, with a total of 3 epochs trained, and the gradient clipping threshold is 1.0. At the end of each epoch, Accuracy and Macro-F1 are calculated on the validation set, and the best checkpoint is selected based on the validation set Macro-F1 to avoid relying solely on Accuracy while ignoring the performance of a few classes. The complete training process runs in the Apple M Series chip (MPS) environment, and each epoch takes approximately 15 to 25 minutes.
 
+The baseline is intended to serve as a straightforward reference rather than a heavily optimized traditional model.
+
 ### Best checkpoint selection
 
 The performance of the three epochs on the validation set is as follows:
@@ -111,23 +101,23 @@ It is worth noting that although the accuracies of both test sets are close to 0
 
 ### 4.5.2 Comparative Analysis with the baseline model
 
-To further evaluate the performance gains brought by the pre-trained language model, this paper compares the fine-tuned BERT with the TF-IDF + LinearSVC baseline model. The overall results show that the Macro-F1 of BERT on both test sets is higher than that of the baseline model: it increases from 0.652 to 0.755 on source_0 and from 0.675 to 0.721 on source_1. This indicates that, compared with the sparse feature model relying on word frequency statistics, BERT has a stronger semantic modeling ability in the three-class sentiment analysis task.
+To further evaluate the performance gains brought by the pre-trained language model, this paper compares the fine-tuned BERT with the TF-IDF + LinearSVC baseline model. The overall results show that the Macro-F1 of BERT on both test sets is higher than that of the baseline model: it increases from 0.642 to 0.755 on source_0 and from 0.604 to 0.721 on source_1. This indicates that, compared with a simple sparse-feature baseline relying on word frequency statistics, BERT has a stronger semantic modeling ability in the three-class sentiment analysis task.
 
 To more clearly explain the sources of the performance differences between the two types of models, this paper further tallies the Precision, Recall and F1 of each category on the merged test set (source_0 + source_1), and the results are as follows:
 
 | Model        | Class    | Precision | Recall | F1   |
 | ------------ | -------- | --------- | ------ | ---- |
 | TF-IDF + SVM | positive | 0.92      | 0.92   | 0.92 |
-| TF-IDF + SVM | negative | 0.81      | 0.92   | 0.86 |
-| TF-IDF + SVM | neutral  | 0.40      | 0.13   | 0.19 |
+| TF-IDF + SVM | negative | 0.81      | 0.93   | 0.86 |
+| TF-IDF + SVM | neutral  | 0.40      | 0.05   | 0.09 |
 | BERT         | positive | 0.94      | 0.93   | 0.93 |
 | BERT         | negative | 0.90      | 0.92   | 0.91 |
 | BERT         | neutral  | 0.40      | 0.36   | 0.38 |
 
 It can be seen from the table that both models perform strongly in the positive and negative categories. For the positive class, the F1 values of TF-IDF + SVM and BERT are 0.92 and 0.93 respectively, with a very small gap. For the negative class, BERT's F1 has increased from 0.86 to 0.91. Although there is a certain improvement, it is still not the main source of the difference between the two. This indicates that for comments with relatively clear emotional tendencies and containing significant emotional words, traditional sparse feature models have been able to achieve better classification results, while the advantages of pre-trained language models have not yet been fully demonstrated.
 
-In contrast, the performance difference of the neutral category is the most significant. The precision of TF-IDF + SVM on the neutral class is 0.40, but the recall is only 0.13 and the F1 is only 0.19. This indicates that although the model has a certain degree of accuracy on a few samples predicted as neutral, the vast majority of real neutral samples have not been successfully identified, showing a significant problem of missed judgment. The precision of BERT on the neutral class is also 0.40, but the recall has increased to 0.36 and the F1 has increased to 0.38, approximately twice that of the baseline model. That is to say, BERT did not sacrifice precision for performance improvement, but significantly enhanced the recall ability for neutral categories while maintaining a similar precision.
+In contrast, the performance difference of the neutral category is the most significant. The recall of TF-IDF + SVM on the neutral class is only 0.05, dropping to 0.00 on source_1, meaning the model almost completely fails to identify neutral samples — nearly all true neutral reviews are misclassified as positive or negative. The F1 score of 0.09 confirms this near-total failure on the neutral category. The precision of BERT on the neutral class is also 0.40, but the recall has increased to 0.36 and the F1 has increased to 0.38, approximately twice that of the baseline model. That is to say, BERT did not sacrifice precision for performance improvement, but significantly enhanced the recall ability for neutral categories while maintaining a similar precision.
 
-This phenomenon indicates that the main source of the overall performance gap between the two types of models does not lie in positive or negative, but in the processing ability for the neutral category. neutral comments usually contain transitional structures, coexistence of advantages and disadvantages, ambiguous semantics or mixed sentiment expressions. For instance, a comment might contain both positive and negative evaluations, and the overall sentiment does not obviously lean towards any single polarity. For this type of samples, although TF-IDF can capture local phrase information through n-gram, it still lacks the ability to model the overall context and inter-sentence semantic relationships. Therefore, it is easy to misjudge them as positive or negative. In contrast, BERT can better understand the overall semantics and emotional transitions of sentences through bidirectional context representation, thus demonstrating a more obvious advantage in the neutral category.
+This phenomenon indicates that the main source of the overall performance gap between the two types of models does not lie in positive or negative, but in the processing ability for the neutral category. Neutral comments usually contain transitional structures, coexistence of advantages and disadvantages, ambiguous semantics or mixed sentiment expressions. For instance, a comment might contain both positive and negative evaluations, and the overall sentiment does not obviously lean towards any single polarity. For this type of samples, although TF-IDF can capture local phrase information through n-gram, it still lacks the ability to model the overall context and inter-sentence semantic relationships. Therefore, it is easy to misjudge them as positive or negative. In contrast, BERT can better understand the overall semantics and emotional transitions of sentences through bidirectional context representation, thus demonstrating a more obvious advantage in the neutral category.
 
 Overall, the TF-IDF + SVM as the baseline model verified the effectiveness of traditional bag-of-words features in explicit sentiment classification, while the fine-tuned BERT further demonstrated that deep context semantic modeling plays a crucial role in three-category sentiment analysis tasks, especially in the recognition of neutral categories. The improvement of BERT on the overall Macro-F1 essentially stems from its more balanced performance across various categories, and this balance is precisely the core capability emphasized by Macro-F1.
