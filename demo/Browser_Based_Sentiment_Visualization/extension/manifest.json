@@ -8,7 +8,7 @@
   },
   "permissions": [],
   "host_permissions": [
-    "http://127.0.0.1:8765/*"
+    "https://alanwang2001-closeclaw.hf.space/*"
   ],
   "content_scripts": [
     {

@@ -1,4 +1,4 @@
-const API = 'http://127.0.0.1:8765';
+const API = 'https://alanwang2001-closeclaw.hf.space';
 let currentModel = null;
 let selectedModel = null;
 

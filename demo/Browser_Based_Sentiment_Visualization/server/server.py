@@ -12,8 +12,8 @@ import gc
 import asyncio
 from concurrent.futures import ThreadPoolExecutor
 
-os.environ.setdefault("HF_HOME", "E:/hf_cache")
-os.environ.setdefault("TRANSFORMERS_CACHE", "E:/hf_cache/hub")
+os.environ.setdefault("HF_HOME", "/tmp/hf_cache")
+os.environ.setdefault("TRANSFORMERS_CACHE", "/tmp/hf_cache/hub")
 
 import torch
 from fastapi import FastAPI, HTTPException
@@ -24,18 +24,16 @@ from peft import PeftModel
 
 # ── Model registry ────────────────────────────────────────────────────────────
 
-PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 MODELS = {
     "qwen3-0.6B": {
         "label":    "Qwen3-0.6B (Fine-tuned)",
         "base":     "Qwen/Qwen3-0.6B",
-        "lora":     os.path.join(PROJECT_DIR, "qwen3-0.6B", "lora", "sft"),
+        "lora":     "alanwang2001/qwen3-0.6B-sentiment-lora",
     },
     "qwen3-1.7B": {
         "label":    "Qwen3-1.7B (Fine-tuned)",
         "base":     "Qwen/Qwen3-1.7B",
-        "lora":     os.path.join(PROJECT_DIR, "qwen3-1.7B", "lora", "sft"),
+        "lora":     "alanwang2001/qwen3-1.7B-sentiment-lora",
     },
 }
 
@@ -81,8 +79,7 @@ def _do_load(name: str):
             torch.cuda.empty_cache()
 
     tokenizer = AutoTokenizer.from_pretrained(
-        cfg["lora"] if os.path.exists(os.path.join(cfg["lora"], "tokenizer.json"))
-                    else cfg["base"],
+        cfg["base"],
         trust_remote_code=True,
     )
 
@@ -232,4 +229,4 @@ def analyze(req: ReviewRequest):
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="127.0.0.1", port=8765)
+    uvicorn.run(app, host="0.0.0.0", port=7860)
