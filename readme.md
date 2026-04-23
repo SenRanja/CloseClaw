@@ -56,9 +56,7 @@ For **code**, it is located in github repository: [github.com/SenRanja/CloseClaw
 
 For **CONTRIBUTION.md**, refer to [CONTRIBUTION.md](https://github.com/SenRanja/CloseClaw/blob/master/CONTRIBUTION.md).
 
-For **weight files for all our fine-tuned models**, the downloadable links:
- -  [Google Drive of our weight files](https://drive.google.com/drive/folders/1C91_-CZXu8RnYeENuOQ0efwEhN9NzAKF?usp=sharing)
- -  [huggingface.co/alanwang2001](https://huggingface.co/alanwang2001).
+For **weight files for all fine-tuned models**, the downloadable links: [huggingface.co/alanwang2001](https://huggingface.co/alanwang2001).
 
 # Datasets
 
