@@ -1,6 +1,8 @@
 
 # Contributions
 
+We all contributed to the project on an almost equal footing, only our roles differed. Our contributions are as follows:
+
 | Name | Zid | contributions |
 |-----|-----|-----|
 | Kejing Wang   | z5526880 | 1. Dataset format construction and partitioning<br>2. SFT of qwen3 0.6B, qwen3 1.7B, and qwen3 4B<br>3. Analysis of scaling law |

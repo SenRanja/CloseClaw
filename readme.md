@@ -1,4 +1,5 @@
 
+- [CloseClaw teammeates](#closeclaw-teammeates)
 - [Reading Instructions](#reading-instructions)
 - [datasets](#datasets)
   - [existing open-source data datasets](#existing-open-source-data-datasets)
@@ -34,6 +35,17 @@
     - [Switching Models](#switching-models)
   - [Running the Server Locally](#running-the-server-locally)
 
+
+# CloseClaw teammeates
+
+| Name | Zid |
+|-----|-----|
+| Kejing Wang   | z5526880 |
+| Haotian Wang | z5576699 |
+| Weiye Li | z5597115 |
+| Yanjian Shen | z5541664 |
+| Yingxin Li | z5519793 |
+
 # Reading Instructions
 
 Due to the large scale of this team project involving multiple collaborators, and also for readability reasons, the `code`, `how-to-run` `instructions`, and `explanations` **cannot be presented in a single Markdown document**. 
@@ -42,7 +54,9 @@ Readers are advised to **refer to the references** provided in this article. The
 
 For **code**, it is located in github repository: [github.com/SenRanja/CloseClaw](https://github.com/SenRanja/CloseClaw).
 
-For **CONTRIBUTION**, refer to [CONTRIBUTION.md](https://github.com/SenRanja/CloseClaw/blob/master/CONTRIBUTION.md).
+For **CONTRIBUTION.md**, refer to [CONTRIBUTION.md](https://github.com/SenRanja/CloseClaw/blob/master/CONTRIBUTION.md).
+
+For **weight files for all our fine-tuned models** [Google Drive of our weight files](https://drive.google.com/drive/folders/1C91_-CZXu8RnYeENuOQ0efwEhN9NzAKF?usp=sharing).
 
 # datasets
 
