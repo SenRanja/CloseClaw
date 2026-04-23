@@ -3,6 +3,7 @@
 - [Team CloseClaw and teammeates](#team-closeclaw-and-teammeates)
 - [Reading Instructions](#reading-instructions)
 - [our deliverables are downloadable](#our-deliverables-are-downloadable)
+- [command run and result](#command-run-and-result)
 - [Datasets](#datasets)
   - [Existing open-source data datasets](#existing-open-source-data-datasets)
   - [Self-built spider dataset](#self-built-spider-dataset)
@@ -72,9 +73,27 @@ For **CONTRIBUTION.md**, refer to [CONTRIBUTION.md](https://github.com/SenRanja/
 
 For **weight files for all fine-tuned models**, the downloadable links: [huggingface.co/alanwang2001](https://huggingface.co/alanwang2001).
 
-For our **slides of presentation**, it's []().
+For our **slides of presentation**, it's [presentation/CloseClowPresentation.pptx](https://github.com/SenRanja/CloseClaw/blob/master/presentation/CloseClowPresentation.pptx).
 
-For command run result
+# command run and result
+
+The result of our report (pdf) can be running command-line to acquire the result of the report.
+
+The **run_direct_chat_1_7b.sh** is in [three_large_models_qwen/run_direct_chat_1_7b.sh](https://github.com/SenRanja/CloseClaw/blob/master/three_large_models_qwen/run_direct_chat_1_7b.sh).
+
+Example command-line invocation.
+
+```
+bash run_direct_chat_1_7b.sh \--review "This movie is painfully slow, badly acted, and not worth watching."
+```
+
+Expected output.
+
+```
+The review clearly expresses a negative opinion about the movie, describing it as painfully slow and not worth watching.
+```
+
+This interface is useful for debugging, fast verification, and reproducible testing of individual samples without requiring a graphical user interface. For further to get specific `positive`, `negative` or `neutral`, we can use script to match the classfication.
 
 # Datasets
 
