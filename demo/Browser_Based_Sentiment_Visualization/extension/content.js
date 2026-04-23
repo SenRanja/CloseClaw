@@ -7,7 +7,7 @@
 const ADAPTERS = [
   {
     host:           "rottentomatoes.com",
-    reviewSelector: "review-card > div, review-card drawer-more > span",
+    reviewSelector: '[slot="review"]',
   },
   {
     host:           "imdb.com",
