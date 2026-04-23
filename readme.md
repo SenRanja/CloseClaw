@@ -1,23 +1,23 @@
 
 - [CloseClaw teammeates](#closeclaw-teammeates)
 - [Reading Instructions](#reading-instructions)
-- [datasets](#datasets)
-  - [existing open-source data datasets](#existing-open-source-data-datasets)
-  - [self-built spider dataset](#self-built-spider-dataset)
-- [data analysis](#data-analysis)
+- [Datasets](#datasets)
+  - [Existing open-source data datasets](#existing-open-source-data-datasets)
+  - [Self-built spider dataset](#self-built-spider-dataset)
+- [Data analysis](#data-analysis)
   - [Length problem](#length-problem)
   - [Non-ASCII characters](#non-ascii-characters)
   - [Satirical comments](#satirical-comments)
   - [The centrists rated 5 or 6](#the-centrists-rated-5-or-6)
-- [preprocessing](#preprocessing)
-  - [requirement for the processed dataset](#requirement-for-the-processed-dataset)
-    - [definition of classification problem for the labels](#definition-of-classification-problem-for-the-labels)
-    - [definition of the source ID to distinguish dataset sources](#definition-of-the-source-id-to-distinguish-dataset-sources)
-  - [code](#code)
-    - [1. data\_preprocessing](#1-data_preprocessing)
+- [Preprocessing](#preprocessing)
+  - [Requirement for the processed dataset](#requirement-for-the-processed-dataset)
+    - [Definition of classification problem for the labels](#definition-of-classification-problem-for-the-labels)
+    - [Definition of the source ID to distinguish dataset sources](#definition-of-the-source-id-to-distinguish-dataset-sources)
+  - [Code](#code)
+    - [1. Data\_preprocessing](#1-data_preprocessing)
     - [2. Relabel the data using a large model](#2-relabel-the-data-using-a-large-model)
-  - [training dataset \& test dataset](#training-dataset--test-dataset)
-- [models](#models)
+  - [Training dataset \& test dataset](#training-dataset--test-dataset)
+- [Models](#models)
   - [VADER (lexicon)](#vader-lexicon)
   - [SVM (baseline model)](#svm-baseline-model)
   - [BERT](#bert)
@@ -56,7 +56,9 @@ For **code**, it is located in github repository: [github.com/SenRanja/CloseClaw
 
 For **CONTRIBUTION.md**, refer to [CONTRIBUTION.md](https://github.com/SenRanja/CloseClaw/blob/master/CONTRIBUTION.md).
 
-For **weight files for all our fine-tuned models** [Google Drive of our weight files](https://drive.google.com/drive/folders/1C91_-CZXu8RnYeENuOQ0efwEhN9NzAKF?usp=sharing).
+For **weight files for all our fine-tuned models**, the downloadable links:
+ -  [Google Drive of our weight files](https://drive.google.com/drive/folders/1C91_-CZXu8RnYeENuOQ0efwEhN9NzAKF?usp=sharing)
+ -  [huggingface.co/alanwang2001](https://huggingface.co/alanwang2001).
 
 # Datasets
 
