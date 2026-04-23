@@ -1,4 +1,5 @@
 
+- [Demo for the Chrome extension of sentiment analysis](#demo-for-the-chrome-extension-of-sentiment-analysis)
 - [CloseClaw teammeates](#closeclaw-teammeates)
 - [Reading Instructions](#reading-instructions)
 - [Datasets](#datasets)
@@ -24,17 +25,27 @@
   - [Qwen3-0.6B, Qwen3-1.7B, Qwen3-4B](#qwen3-06b-qwen3-17b-qwen3-4b)
 - [Experiments \& Evaluation](#experiments--evaluation)
 - [Demo](#demo)
-  - [Browser-Based Sentiment Visualization](#browser-based-sentiment-visualization)
-    - [Architecture](#architecture)
-    - [Supported Sites](#supported-sites)
   - [Installation (QuickStart!) for Demo](#installation-quickstart-for-demo)
     - [1. Load the Extension](#1-load-the-extension)
     - [2. Verify the Connection](#2-verify-the-connection)
   - [Usage](#usage)
     - [Automatic Badge Labeling](#automatic-badge-labeling)
     - [Switching Models](#switching-models)
-  - [Running the Server Locally](#running-the-server-locally)
 
+
+# Demo for the Chrome extension of sentiment analysis
+
+Our demo is a **Chrome extension**, which automatically labels movie review sentiment on IMDb and Rotten Tomatoes, powered by fine-tuned Qwen3 models served from HuggingFace Spaces.
+
+There is a Youtube Video, it shows the Demo: [ How to install extension & effect](https://youtu.be/8mZQOo3kle0)
+
+For the detailed description, refer to the markdown of [Demo description](https://github.com/SenRanja/CloseClaw/blob/master/demo/Browser_Based_Sentiment_Visualization/7_system_interface.md).
+
+It generates the website labels in websites of `IMDB` and `Rotten Tomatoes`.
+
+![](img/2026-04-18-19-36-01.png)
+
+![](img/2026-04-18-19-36-19.png)
 
 # CloseClaw teammeates
 
@@ -241,41 +252,10 @@ Besides, all the tables & figures are in [tables & figures](https://github.com/S
 
 # Demo
 
-Video link: https://youtu.be/8mZQOo3kle0
+This section is to describe how to install as the video link (which is mentioned at the begining of this article): [ How to install extension & effect](https://youtu.be/8mZQOo3kle0)
 
-For our Demo which shows the work of our models, refer to the markdown of [Demo description](https://github.com/SenRanja/CloseClaw/blob/master/demo/Browser_Based_Sentiment_Visualization/7_system_interface.md), where the code is also in that directory.
+Please note that the extension may not be in use in the future due to the DOM change of the movie review websites. But at least in April 23rd, it can still work normally.
 
-It will generate the website labels in websites of `IMDB` and `Rotten Tomatoes`.
-
-![](img/2026-04-18-19-36-01.png)
-
-![](img/2026-04-18-19-36-19.png)
-
-## Browser-Based Sentiment Visualization
-
-A Chrome extension that automatically labels movie review sentiment on IMDb and Rotten Tomatoes, powered by fine-tuned Qwen3 models served from HuggingFace Spaces.
-
----
-
-### Architecture
-
-```
-Chrome Extension  ──→  HuggingFace Space (FastAPI)  ──→  Qwen3 + LoRA
-  (content.js)          alanwang2001/closeclaw           alanwang2001/
-  (background.js)                                        qwen3-0.6B-sentiment-lora
-  (popup.js)                                             qwen3-1.7B-sentiment-lora
-```
-
----
-
-### Supported Sites
-
-| Site | URL Pattern |
-|------|-------------|
-| IMDb | `imdb.com/title/*/reviews*` |
-| Rotten Tomatoes | `rottentomatoes.com/*` |
-
----
 
 ## Installation (QuickStart!) for Demo
 
@@ -312,29 +292,5 @@ Click the extension icon in the Chrome toolbar. The status dot should turn green
    - **Qwen3-1.7B** — more accurate, slower
 3. Click **Apply** and wait up to 30 seconds for the model to switch
 
----
-
-
-## Running the Server Locally
-
-If you want to run the inference server on your own machine instead of using the HuggingFace Space:
-
-```bash
-cd server
-
-# Install dependencies
-pip install -r requirements.txt
-
-# (Optional) Pre-download models
-python download_models.py
-
-# Start the server
-python server.py
-# Listening on http://127.0.0.1:8765
-```
-
-Then update `extension/popup.js` and `extension/background.js` to point to `http://127.0.0.1:8765`, and update `extension/manifest.json` `host_permissions` accordingly.
-
----
 
 
