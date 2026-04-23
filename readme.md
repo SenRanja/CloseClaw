@@ -241,6 +241,8 @@ Besides, all the tables & figures are in [tables & figures](https://github.com/S
 
 # Demo
 
+Video link: https://youtu.be/8mZQOo3kle0
+
 For our Demo which shows the work of our models, refer to the markdown of [Demo description](https://github.com/SenRanja/CloseClaw/blob/master/demo/Browser_Based_Sentiment_Visualization/7_system_interface.md), where the code is also in that directory.
 
 It will generate the website labels in websites of `IMDB` and `Rotten Tomatoes`.
