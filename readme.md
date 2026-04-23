@@ -287,6 +287,7 @@ Please note that the extension may not be in use in the future due to the DOM ch
 
 ### 1. Load the Extension
 
+0. Download the extension: [extension.zip](https://github.com/SenRanja/CloseClaw/blob/master/extension.zip), and then unzip it.
 1. Open Chrome and navigate to `chrome://extensions/`
 2. Enable **Developer mode** (toggle in the top-right corner)
 3. Click **Load unpacked**
