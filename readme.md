@@ -1,5 +1,5 @@
 
-- [Demo for the Chrome extension of sentiment analysis](#demo-for-the-chrome-extension-of-sentiment-analysis)
+- [Demo for sentiment analysis of movie review](#demo-for-sentiment-analysis-of-movie-review)
 - [CloseClaw teammeates](#closeclaw-teammeates)
 - [Reading Instructions](#reading-instructions)
 - [Datasets](#datasets)
@@ -33,7 +33,7 @@
     - [Switching Models](#switching-models)
 
 
-# Demo for the Chrome extension of sentiment analysis
+# Demo for sentiment analysis of movie review
 
 Our demo is a **Chrome extension**, which automatically labels movie review sentiment on IMDb and Rotten Tomatoes, powered by fine-tuned Qwen3 models served from HuggingFace Spaces.
 
