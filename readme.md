@@ -58,15 +58,15 @@ For **CONTRIBUTION.md**, refer to [CONTRIBUTION.md](https://github.com/SenRanja/
 
 For **weight files for all our fine-tuned models** [Google Drive of our weight files](https://drive.google.com/drive/folders/1C91_-CZXu8RnYeENuOQ0efwEhN9NzAKF?usp=sharing).
 
-# datasets
+# Datasets
 
-## existing open-source data datasets
+## Existing open-source data datasets
 
 1. [IMDB Large Movie Review Dataset (2011)](http://ai.stanford.edu/~amaas/data/sentiment/) (**100k rows**)
 
 2. [cornell-movie-review-data/rotten_tomatoes](https://huggingface.co/datasets/cornell-movie-review-data/rotten_tomatoes) **(10.67k rows**)
 
-## self-built spider dataset
+## Self-built spider dataset
 
 - IMDB latest movies
 
@@ -83,7 +83,7 @@ For the spider code, plesae refer to the directory of [data_collector](https://g
 
 For the data
 
-# data analysis
+# Data analysis
 
 ## Length problem
 
@@ -131,11 +131,11 @@ ORDER BY rating;
 
 ![](img/2026-04-18-18-29-27.png)
 
-# preprocessing
+# Preprocessing
 
-## requirement for the processed dataset
+## Requirement for the processed dataset
 
-### definition of classification problem for the labels
+### Definition of classification problem for the labels
 
 For our preprocessed datasets, we defined the classification labels: 
 
@@ -143,16 +143,16 @@ For our preprocessed datasets, we defined the classification labels:
 - **1** represents **positive**
 - **-1** represents **negative**
 
-### definition of the source ID to distinguish dataset sources
+### Definition of the source ID to distinguish dataset sources
 
 For future to evaluate the datasets' quality (different from large models), we distinguish two types of the dataset sources: 
 
 - **0** to represent open-source data: just like **IMDB Large Movie Review Dataset (2011)** and **rotten_tomatoes**
 - **1** to represent self-built spider dataset: just like IMDB latest movies from our spider scripts.
 
-## code
+## Code
 
-### 1. data_preprocessing
+### 1. Data_preprocessing
 
 For the total datasets of ours, please refer to the **SQLite DB** file as below:
 
@@ -176,22 +176,22 @@ For this part of description, please refer to the markdown of [3_3_Annotation%20
 
 For the code, refer to [Automatic_annotation/auto_label](https://github.com/SenRanja/CloseClaw/blob/master/Automatic_annotation/auto_label.py).
 
-## training dataset & test dataset
+## Training dataset & test dataset
 
 After preprocessing, we designed the formal training dataset & test dataset.
 
-**train & validate dataset**
+**Train & validate dataset**
 
 [datasets/sft_train.json](https://github.com/SenRanja/CloseClaw/blob/master/datasets/sft_train.json)
 
 
-**test dataset**
+**Test dataset**
 
 [datasets/val](https://github.com/SenRanja/CloseClaw/tree/master/datasets/val)
 
 (Because of some minor naming errors, the test dataset is named as `val`. Actually it is test data, which is used to evaluate our models.)
 
-# models
+# Models
 
 ## VADER (lexicon)
 
