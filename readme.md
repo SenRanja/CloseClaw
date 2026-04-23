@@ -23,6 +23,16 @@
   - [Qwen3-0.6B, Qwen3-1.7B, Qwen3-4B](#qwen3-06b-qwen3-17b-qwen3-4b)
 - [Experiments \& Evaluation](#experiments--evaluation)
 - [Demo](#demo)
+  - [Browser-Based Sentiment Visualization](#browser-based-sentiment-visualization)
+    - [Architecture](#architecture)
+    - [Supported Sites](#supported-sites)
+  - [Installation (QuickStart!) for Demo](#installation-quickstart-for-demo)
+    - [1. Load the Extension](#1-load-the-extension)
+    - [2. Verify the Connection](#2-verify-the-connection)
+  - [Usage](#usage)
+    - [Automatic Badge Labeling](#automatic-badge-labeling)
+    - [Switching Models](#switching-models)
+  - [Running the Server Locally](#running-the-server-locally)
 
 # Reading Instructions
 
@@ -221,13 +231,13 @@ It will generate the website labels in websites of `IMDB` and `Rotten Tomatoes`.
 
 ![](img/2026-04-18-19-36-19.png)
 
-# Browser-Based Sentiment Visualization
+## Browser-Based Sentiment Visualization
 
 A Chrome extension that automatically labels movie review sentiment on IMDb and Rotten Tomatoes, powered by fine-tuned Qwen3 models served from HuggingFace Spaces.
 
 ---
 
-## Architecture
+### Architecture
 
 ```
 Chrome Extension  ──→  HuggingFace Space (FastAPI)  ──→  Qwen3 + LoRA
@@ -238,7 +248,7 @@ Chrome Extension  ──→  HuggingFace Space (FastAPI)  ──→  Qwen3 + LoR
 
 ---
 
-## Supported Sites
+### Supported Sites
 
 | Site | URL Pattern |
 |------|-------------|
@@ -247,7 +257,7 @@ Chrome Extension  ──→  HuggingFace Space (FastAPI)  ──→  Qwen3 + LoR
 
 ---
 
-## Installation
+## Installation (QuickStart!) for Demo
 
 ### 1. Load the Extension
 
@@ -284,16 +294,6 @@ Click the extension icon in the Chrome toolbar. The status dot should turn green
 
 ---
 
-## Models
-
-| Model | HuggingFace Repo | Base |
-|-------|-----------------|------|
-| Qwen3-0.6B (fine-tuned) | `alanwang2001/qwen3-0.6B-sentiment-lora` | `Qwen/Qwen3-0.6B` |
-| Qwen3-1.7B (fine-tuned) | `alanwang2001/qwen3-1.7B-sentiment-lora` | `Qwen/Qwen3-1.7B` |
-
-Both models are fine-tuned with LoRA on movie review sentiment data and output labels in `\boxed{positive}` / `\boxed{negative}` / `\boxed{neutral}` format.
-
----
 
 ## Running the Server Locally
 
@@ -317,20 +317,4 @@ Then update `extension/popup.js` and `extension/background.js` to point to `http
 
 ---
 
-## Project Structure
-
-```
-Browser_Based_Sentiment_Visualization/
-├── Dockerfile              # HuggingFace Space container config
-├── extension/              # Chrome extension
-│   ├── manifest.json
-│   ├── popup.html/js       # Extension popup UI
-│   ├── background.js       # Service worker (proxies API calls)
-│   ├── content.js          # Injects badges into review pages
-│   └── badge.css           # Badge styles
-└── server/                 # FastAPI inference server
-    ├── server.py
-    ├── requirements.txt
-    └── download_models.py  # Pre-download script for local use
-```
 

@@ -87,3 +87,32 @@ Inference uses the same ChatML prompt format as training. The model outputs a
 reasoning chain followed by a boxed label (`\boxed{positive}`, `\boxed{negative}`,
 or `\boxed{neutral}`), which is extracted by regex and displayed as a badge; the
 reasoning chain is surfaced as a tooltip.
+
+
+## Models
+
+| Model | HuggingFace Repo | Base |
+|-------|-----------------|------|
+| Qwen3-0.6B (fine-tuned) | `alanwang2001/qwen3-0.6B-sentiment-lora` | `Qwen/Qwen3-0.6B` |
+| Qwen3-1.7B (fine-tuned) | `alanwang2001/qwen3-1.7B-sentiment-lora` | `Qwen/Qwen3-1.7B` |
+
+Both models are fine-tuned with LoRA on movie review sentiment data and output labels in `\boxed{positive}` / `\boxed{negative}` / `\boxed{neutral}` format.
+
+---
+
+## Project Structure
+
+```
+Browser_Based_Sentiment_Visualization/
+├── Dockerfile              # HuggingFace Space container config
+├── extension/              # Chrome extension
+│   ├── manifest.json
+│   ├── popup.html/js       # Extension popup UI
+│   ├── background.js       # Service worker (proxies API calls)
+│   ├── content.js          # Injects badges into review pages
+│   └── badge.css           # Badge styles
+└── server/                 # FastAPI inference server
+    ├── server.py
+    ├── requirements.txt
+    └── download_models.py  # Pre-download script for local use
+```
