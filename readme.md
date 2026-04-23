@@ -251,11 +251,11 @@ For how to run the pipelines:
 
 # Experiments & Evaluation
 
-The final data integration, chart generation, and processing of the results after running **all the above models**, please refer to the executed Jupyter Notebook: [Experiments&Evaluation.ipynb](https://github.com/SenRanja/CloseClaw/blob/master/Experiments%26Evaluation/Experiments%26Evaluation.ipynb), which contains all the outputed results of the total evaluations.
+The final data integration, chart generation, and processing of the results after running **all the above models**, please refer to the executed Jupyter Notebook: [Experiments_Evaluation.ipynb](https://github.com/SenRanja/CloseClaw/blob/master/Experiments%26Evaluation/Experiments_Evaluation.ipynb), which contains all the outputed results of the total evaluations.
 
 Besides, all the tables & figures are in [tables & figures](https://github.com/SenRanja/CloseClaw/tree/master/Experiments%26Evaluation/Tables%26Figures), just like that
 
-![](img/2026-04-18-19-28-30.png)
+![](img/2026-04-23-18-20-45.png)
 
 # Demo
 
