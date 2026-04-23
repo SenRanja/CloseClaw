@@ -1,6 +1,8 @@
 
 # Contributions
 
+This is team **CloseClaw**.
+
 We all contributed to the project on an almost equal footing, only our roles differed. Our contributions are as follows:
 
 | Name | Zid | contributions |

@@ -1,7 +1,8 @@
 
 - [Demo for sentiment analysis of movie review](#demo-for-sentiment-analysis-of-movie-review)
-- [CloseClaw teammeates](#closeclaw-teammeates)
+- [Team CloseClaw and teammeates](#team-closeclaw-and-teammeates)
 - [Reading Instructions](#reading-instructions)
+- [our deliverables are downloadable](#our-deliverables-are-downloadable)
 - [Datasets](#datasets)
   - [Existing open-source data datasets](#existing-open-source-data-datasets)
   - [Self-built spider dataset](#self-built-spider-dataset)
@@ -47,7 +48,7 @@ It generates the website labels in websites of `IMDB` and `Rotten Tomatoes`.
 
 ![](img/2026-04-18-19-36-19.png)
 
-# CloseClaw teammeates
+# Team CloseClaw and teammeates
 
 | Name | Zid |
 |-----|-----|
@@ -63,11 +64,17 @@ Due to the large scale of this team project involving multiple collaborators, an
 
 Readers are advised to **refer to the references** provided in this article. These references are specifically designed as **navigation** elements **within the project** for convenience.
 
+# our deliverables are downloadable
+
 For **code**, it is located in github repository: [github.com/SenRanja/CloseClaw](https://github.com/SenRanja/CloseClaw).
 
 For **CONTRIBUTION.md**, refer to [CONTRIBUTION.md](https://github.com/SenRanja/CloseClaw/blob/master/CONTRIBUTION.md).
 
 For **weight files for all fine-tuned models**, the downloadable links: [huggingface.co/alanwang2001](https://huggingface.co/alanwang2001).
+
+For our **slides of presentation**, it's []().
+
+For command run result
 
 # Datasets
 
